@@ -1,5 +1,6 @@
 package cs477.ontap;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         Button loginButton = (Button)findViewById(R.id.button_mainLogin);
         Button registerButton = (Button)findViewById(R.id.button_mainRegister);
 
+        assert loginButton != null;
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,10 +25,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        assert registerButton != null;
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "GOTO account creation page 1", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "GOTO account creation page 1", Toast.LENGTH_SHORT).show();
+                Intent myIntentToAccountCreation1 = new Intent(MainActivity.this, AccountCreation1Activity.class);
+                startActivity(myIntentToAccountCreation1);
             }
         });
     }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OnTap</string>
+    <string name="enter_name">Enter a Username</string>
 </resources>
