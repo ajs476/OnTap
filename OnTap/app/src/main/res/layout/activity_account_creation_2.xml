@@ -14,12 +14,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Credit Card Number"
+        android:text="Credit Card Information"
         android:id="@+id/textView_cardNumber"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:textSize="28dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginTop="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -27,23 +28,10 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText_cardNumber"
-        android:hint="Tap here to enter credit card number"
+        android:hint="Card Number"
         android:layout_below="@+id/textView_cardNumber"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Card Expiration Date"
-        android:id="@+id/textView_cardExp"
-        android:layout_below="@+id/editText_cardNumber"
-        android:layout_centerHorizontal="true"
-        android:textSize="28dp"
-        android:textStyle="bold" />
+        android:gravity="left|center_horizontal"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -51,23 +39,13 @@
         android:inputType="date"
         android:ems="10"
         android:id="@+id/editText_cardExp"
-        android:hint="Tap here to enter credit card expiration date"
-        android:layout_below="@+id/textView_cardExp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Card Security Code (CCV)"
-        android:id="@+id/textView_cardSecurity"
-        android:layout_below="@+id/editText_cardExp"
-        android:layout_centerHorizontal="true"
-        android:textSize="28dp"
-        android:textStyle="bold" />
+        android:hint="Day/Month/Year"
+        android:gravity="left|center_horizontal"
+        android:layout_alignLeft="@+id/editText_cardNumber"
+        android:layout_alignStart="@+id/editText_cardNumber"
+        android:layout_alignRight="@+id/editText_cardNumber"
+        android:layout_alignEnd="@+id/editText_cardNumber"
+        android:layout_below="@+id/editText_cardNumber" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -75,23 +53,10 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText_cardSecurity"
-        android:hint="Tap here to enter credit card security number"
-        android:layout_below="@+id/textView_cardSecurity"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name On Card"
-        android:id="@+id/textView_cardName"
-        android:layout_below="@+id/editText_cardSecurity"
-        android:layout_centerHorizontal="true"
-        android:textSize="28dp"
-        android:textStyle="bold" />
+        android:hint="CCV"
+        android:gravity="left|center_horizontal"
+        android:layout_below="@+id/editText_cardExp"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -99,59 +64,57 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editText_cardName"
-        android:hint="Tap here to enter name on card"
-        android:layout_below="@+id/textView_cardName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal" />
+        android:hint="Name on card"
+        android:gravity="left|center_horizontal"
+        android:layout_below="@+id/editText_cardSecurity"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Billing Address"
+        android:text="Billing Address Information"
         android:id="@+id/textView_cardAddress"
         android:textSize="28dp"
+        android:textStyle="bold"
+        android:layout_marginTop="48dp"
         android:layout_below="@+id/editText_cardName"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_cardStreetAddr"
-        android:hint="Tap here to enter street address"
+        android:hint="Street address"
         android:layout_below="@+id/textView_cardAddress"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal" />
+        android:gravity="left|center_horizontal"
+        android:layout_alignLeft="@+id/editText_cardName"
+        android:layout_alignStart="@+id/editText_cardName"
+        android:layout_alignRight="@+id/editText_cardName"
+        android:layout_alignEnd="@+id/editText_cardName" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_cardCityAddr"
-        android:hint="Tap here to enter city"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/editText_cardStreetAddr" />
+        android:hint="City"
+        android:gravity="left|center_horizontal"
+        android:layout_below="@+id/editText_cardStreetAddr"
+        android:layout_alignLeft="@+id/editText_cardStreetAddr"
+        android:layout_alignStart="@+id/editText_cardStreetAddr"
+        android:layout_alignRight="@+id/editText_cardStreetAddr"
+        android:layout_alignEnd="@+id/editText_cardStreetAddr" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_cardStateAddr"
-        android:hint="Tap here to enter state"
+        android:hint="State"
         android:layout_below="@+id/editText_cardCityAddr"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal" />
+        android:gravity="left|center_horizontal"
+        android:layout_alignLeft="@+id/editText_cardCityAddr"
+        android:layout_alignStart="@+id/editText_cardCityAddr"
+        android:layout_alignRight="@+id/editText_cardCityAddr"
+        android:layout_alignEnd="@+id/editText_cardCityAddr" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -159,13 +122,13 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText_cardZipAddr"
-        android:hint="Tap here to enter 5 digit zip code"
+        android:hint="Zip Code"
         android:layout_below="@+id/editText_cardStateAddr"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal" />
+        android:gravity="left|center_horizontal"
+        android:layout_alignLeft="@+id/editText_cardStateAddr"
+        android:layout_alignStart="@+id/editText_cardStateAddr"
+        android:layout_alignRight="@+id/editText_cardStateAddr"
+        android:layout_alignEnd="@+id/editText_cardStateAddr" />
 
     <Button
         android:layout_width="wrap_content"
@@ -173,8 +136,9 @@
         android:text="Finish Account Creation"
         android:id="@+id/button"
         android:layout_below="@+id/editText_cardZipAddr"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp" />
+        android:layout_alignLeft="@+id/editText_cardZipAddr"
+        android:layout_alignStart="@+id/editText_cardZipAddr"
+        android:layout_marginTop="30dp" />
 
 </RelativeLayout>
 

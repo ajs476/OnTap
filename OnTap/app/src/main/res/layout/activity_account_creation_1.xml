@@ -17,13 +17,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_createUsername"
-        android:hint="Tap here to enter Username"
+        android:hint="Username"
         android:layout_below="@+id/textView_createUsername"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_horizontal" />
+        android:gravity="left|center_horizontal"
+        android:layout_alignLeft="@+id/textView_createUsername"
+        android:layout_alignStart="@+id/textView_createUsername"
+        android:layout_alignRight="@+id/textView_createUsername"
+        android:layout_alignEnd="@+id/textView_createUsername" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,13 +49,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="Tap here to enter Password"
+        android:hint="Password"
         android:ems="10"
         android:id="@+id/editText_createPassword"
+        android:gravity="left|center_horizontal"
         android:layout_below="@+id/textView_createPassword"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center_horizontal" />
+        android:layout_alignLeft="@+id/editText_createUsername"
+        android:layout_alignStart="@+id/editText_createUsername"
+        android:layout_alignRight="@+id/editText_createUsername"
+        android:layout_alignEnd="@+id/editText_createUsername" />
 </RelativeLayout>
