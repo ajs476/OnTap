@@ -36,7 +36,9 @@
         android:text="Street Address"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/editText7"
-        android:layout_alignStart="@+id/editText7" />
+        android:layout_alignStart="@+id/editText7"
+        android:layout_alignRight="@+id/editText7"
+        android:layout_alignEnd="@+id/editText7" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -113,4 +115,5 @@
         android:layout_alignRight="@+id/editText11"
         android:layout_alignEnd="@+id/editText11"
         android:text="Card Provider" />
+
 </RelativeLayout>

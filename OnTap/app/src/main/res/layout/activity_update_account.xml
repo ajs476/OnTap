@@ -13,13 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:layout_marginTop="92dp"
-        android:text="Enter New Password"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
+        android:text="New Password"
+        android:layout_below="@+id/editText16"
         android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2" />
+        android:layout_alignEnd="@+id/editText2"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,8 +26,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Change Password"
         android:id="@+id/textView"
-        android:layout_marginBottom="55dp"
-        android:layout_alignBottom="@+id/editText"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -54,9 +52,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Update Email"
         android:id="@+id/textView2"
+        android:layout_marginTop="81dp"
         android:layout_below="@+id/button5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -87,5 +85,16 @@
         android:id="@+id/button6"
         android:layout_below="@+id/editText4"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText16"
+        android:text="Current Password"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2" />
 
 </RelativeLayout>
