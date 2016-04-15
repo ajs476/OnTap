@@ -20,6 +20,14 @@ public class MainActivity extends AppCompatActivity {
         final Dialog loginDialog = new Dialog(this);
         loginDialog.setContentView(R.layout.login_alert);
         loginDialog.setTitle("Account Login");
+        loginDialog.setCancelable(false);
+        Button cancelLoginAlertButton = (Button)loginDialog.findViewById(R.id.button_loginCancel);
+        cancelLoginAlertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginDialog.cancel();
+            }
+        });
         Button loginAlertButton = (Button)loginDialog.findViewById(R.id.button_loginAlert);
         assert loginAlertButton != null;
         loginAlertButton.setOnClickListener(new View.OnClickListener() {

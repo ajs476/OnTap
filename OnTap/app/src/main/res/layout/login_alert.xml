@@ -42,7 +42,18 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/button_loginAlert"
+        android:layout_marginTop="66dp"
         android:layout_below="@+id/editText_passwordLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="66dp" />
+        android:layout_alignRight="@+id/editText_passwordLogin"
+        android:layout_alignEnd="@+id/editText_passwordLogin" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/button_loginCancel"
+        android:layout_alignBottom="@+id/button_loginAlert"
+        android:layout_alignLeft="@+id/editText_passwordLogin"
+        android:layout_alignStart="@+id/editText_passwordLogin" />
+
 </RelativeLayout>
