@@ -25,6 +25,21 @@
             android:label="Account Creation: Payment &amp; Billing"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:label="OnTap - Home"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".AccountManagementActivity"
+            android:label="Account Management"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".AccountDeletionActivity"
+            android:label="Account Deletion"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
