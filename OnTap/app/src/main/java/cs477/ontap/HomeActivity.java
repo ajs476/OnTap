@@ -17,12 +17,36 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+
+        final Dialog locationDialog = new Dialog(this);
+        locationDialog.setContentView(R.layout.location_select_alert);
+        locationDialog.setTitle("Location Selection");
+        locationDialog.setCancelable(false);
+        Button cancelLocationSelectionButton = (Button)locationDialog.findViewById(R.id.button_locationCancel);
+        cancelLocationSelectionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                locationDialog.cancel();
+            }
+        });
+        Button submitLocationAlertButton = (Button)locationDialog.findViewById(R.id.button_locationSubmit);
+        assert submitLocationAlertButton != null;
+        submitLocationAlertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "Location Selection Successful!", Toast.LENGTH_SHORT).show();
+                //Intent myIntent = new Intent(MainActivity.this, HomeActivity.class);
+                //startActivity(myIntent);
+            }
+        });
+
         Button orderDrinksButton = (Button)findViewById(R.id.button_orderDrinks);
         assert orderDrinksButton != null;
         orderDrinksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "Open OnTap Locations selector alert", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(HomeActivity.this, "Open OnTap Locations selector alert", Toast.LENGTH_SHORT).show();
+                locationDialog.show();
             }
         });
 

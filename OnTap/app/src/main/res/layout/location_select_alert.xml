@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter OnTap Location Code"
+        android:id="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:textSize="28dp"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_locationCode"
+        android:layout_below="@+id/textView5"
+        android:hint = "Location Code"
+        android:layout_marginTop="42dp"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/button_locationCancel"
+        android:layout_below="@+id/editText_locationCode"
+        android:layout_alignLeft="@+id/editText_locationCode"
+        android:layout_alignStart="@+id/editText_locationCode"
+        android:layout_marginTop="80dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/button_locationSubmit"
+        android:layout_alignTop="@+id/button_locationCancel"
+        android:layout_alignRight="@+id/editText_locationCode"
+        android:layout_alignEnd="@+id/editText_locationCode" />
+
+
+</RelativeLayout>
