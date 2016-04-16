@@ -35,8 +35,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomeActivity.this, "Location Selection Successful!", Toast.LENGTH_SHORT).show();
-                //Intent myIntent = new Intent(MainActivity.this, HomeActivity.class);
-                //startActivity(myIntent);
+                Intent myIntent = new Intent(HomeActivity.this, MyTabActivity.class);
+                startActivity(myIntent);
             }
         });
 

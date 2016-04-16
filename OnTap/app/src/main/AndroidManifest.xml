@@ -41,6 +41,11 @@
             android:label="OnTap: Account Deletion"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".MyTabActivity"
+            android:label="OnTap: MyTab &amp; Orders"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
