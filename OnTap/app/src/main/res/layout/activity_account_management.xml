@@ -17,7 +17,8 @@
         android:layout_marginTop="68dp"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
+        android:layout_alignStart="@+id/button3"
+        android:onClick="AccountInfoClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -26,7 +27,8 @@
         android:id="@+id/button3"
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="69dp" />
+        android:layout_marginTop="69dp"
+        android:onClick="BillingInfoClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -35,5 +37,6 @@
         android:id="@+id/button4"
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="76dp" />
+        android:layout_marginTop="76dp"
+        android:onClick="DeleteClick"/>
 </RelativeLayout>

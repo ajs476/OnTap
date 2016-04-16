@@ -54,6 +54,7 @@
         android:layout_alignEnd="@+id/editText14" />
 
     <Button
+        android:onClick="deleteClicked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirm"

@@ -91,7 +91,8 @@
         android:id="@+id/button7"
         android:layout_below="@+id/editText10"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="54dp" />
+        android:layout_marginTop="54dp"
+        android:onClick="UpdateBillingInfo"/>
 
     <EditText
         android:layout_width="wrap_content"
