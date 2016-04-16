@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alcoholic Menu"
+        android:id="@+id/button_alcoholicMenu"
+        android:layout_marginTop="188dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/button_nonAlcoholicMenu"
+        android:layout_alignStart="@+id/button_nonAlcoholicMenu"
+        android:layout_alignRight="@+id/button_nonAlcoholicMenu"
+        android:layout_alignEnd="@+id/button_nonAlcoholicMenu" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Non-Alcoholic Menu"
+        android:id="@+id/button_nonAlcoholicMenu"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/button_alcoholicMenu"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Which type of menu would you like to view?"
+        android:id="@+id/textView13"
+        android:textSize="19dp"
+        android:gravity="center_horizontal"
+        android:layout_alignBottom="@+id/button_alcoholicMenu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="96dp" />
+</RelativeLayout>

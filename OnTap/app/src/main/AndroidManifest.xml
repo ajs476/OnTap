@@ -10,19 +10,50 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"
+                    android:label="OnTap: Login &amp; Registration"/>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".AccountCreation1Activity"
-            android:label="Account Creation: User information"
+            android:label="OnTap: Account Creation 1/2"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".AccountCreation2Activity"
-            android:label="Account Creation: Payment &amp; Billing"
+            android:label="OnTap: Account Creation 2/2"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:label="OnTap: Home"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".AccountManagementActivity"
+            android:label="OnTap: Account Management"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".AccountDeletionActivity"
+            android:label="OnTap: Account Deletion"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".MyTabActivity"
+            android:label="OnTap: MyTab &amp; Orders"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".AlcoholicMenuActivity"
+            android:label="OnTap: Alcoholic Drinks"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".NonAlcoholicMenuActivity"
+            android:label="OnTap: Non-Alcoholic Drinks"
             android:screenOrientation="portrait">
         </activity>
     </application>

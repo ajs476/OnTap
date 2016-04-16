@@ -1,5 +1,6 @@
 package cs477.ontap;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+        final Dialog loginDialog = new Dialog(this);
+        loginDialog.setContentView(R.layout.login_alert);
+        loginDialog.setTitle("Account Login");
+        loginDialog.setCancelable(false);
+        Button cancelLoginAlertButton = (Button)loginDialog.findViewById(R.id.button_loginCancel);
+        cancelLoginAlertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginDialog.cancel();
+            }
+        });
+        Button loginAlertButton = (Button)loginDialog.findViewById(R.id.button_loginAlert);
+        assert loginAlertButton != null;
+        loginAlertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(MainActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                Intent myIntent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
         Button loginButton = (Button)findViewById(R.id.button_mainLogin);
         Button registerButton = (Button)findViewById(R.id.button_mainRegister);
 
@@ -21,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Login Dialogue Popup HERE", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Login Dialogue Popup HERE", Toast.LENGTH_SHORT).show();
+                loginDialog.show();
             }
         });
 
@@ -34,5 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntentToAccountCreation1);
             }
         });
+
+
     }
 }

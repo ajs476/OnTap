@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login to OnTap"
+        android:id="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:textSize="28dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_usernameLogin"
+        android:layout_below="@+id/textView5"
+        android:hint = "Username"
+        android:layout_marginTop="42dp"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText_passwordLogin"
+        android:hint = "Password"
+        android:layout_below="@+id/editText_usernameLogin"
+        android:layout_alignLeft="@+id/editText_usernameLogin"
+        android:layout_alignStart="@+id/editText_usernameLogin"
+        android:layout_alignRight="@+id/editText_usernameLogin"
+        android:layout_alignEnd="@+id/editText_usernameLogin" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/button_loginAlert"
+        android:layout_marginTop="66dp"
+        android:layout_below="@+id/editText_passwordLogin"
+        android:layout_alignRight="@+id/editText_passwordLogin"
+        android:layout_alignEnd="@+id/editText_passwordLogin" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/button_loginCancel"
+        android:layout_alignBottom="@+id/button_loginAlert"
+        android:layout_alignLeft="@+id/editText_passwordLogin"
+        android:layout_alignStart="@+id/editText_passwordLogin" />
+
+</RelativeLayout>

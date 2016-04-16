@@ -134,7 +134,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Finish Account Creation"
-        android:id="@+id/button"
+        android:id="@+id/button_finishAccountCreation"
         android:layout_below="@+id/editText_cardZipAddr"
         android:layout_alignLeft="@+id/editText_cardZipAddr"
         android:layout_alignStart="@+id/editText_cardZipAddr"
