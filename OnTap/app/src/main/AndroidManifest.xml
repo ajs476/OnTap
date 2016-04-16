@@ -46,6 +46,16 @@
             android:label="OnTap: MyTab &amp; Orders"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".AlcoholicMenuActivity"
+            android:label="OnTap: Alcoholic Drinks"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".NonAlcoholicMenuActivity"
+            android:label="OnTap: Non-Alcoholic Drinks"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

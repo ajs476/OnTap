@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
         submitLocationAlertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "Location Selection Successful!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(HomeActivity.this, "Location Selection Successful!", Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(HomeActivity.this, MyTabActivity.class);
                 startActivity(myIntent);
             }

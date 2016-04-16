@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         loginAlertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(myIntent);
             }

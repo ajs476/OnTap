@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Soft Drinks"
+        android:id="@+id/button_softDrinks"
+        android:layout_marginBottom="34dp"
+        android:layout_above="@+id/button_water"
+        android:layout_alignLeft="@+id/button_water"
+        android:layout_alignStart="@+id/button_water"
+        android:layout_alignRight="@+id/button_water"
+        android:layout_alignEnd="@+id/button_water" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mixed Drinks \n (Non-Alcoholic)"
+        android:id="@+id/button_nonAlcMixed"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/button_water"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Water"
+        android:id="@+id/button_water"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/button_nonAlcMixed"
+        android:layout_alignStart="@+id/button_nonAlcMixed"
+        android:layout_alignRight="@+id/button_nonAlcMixed"
+        android:layout_alignEnd="@+id/button_nonAlcMixed" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Available Non-Alcoholic Drink Types"
+        android:id="@+id/textView14"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:textSize="28dp"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other"
+        android:id="@+id/button_otherDrink"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/button_nonAlcMixed"
+        android:layout_alignLeft="@+id/button_nonAlcMixed"
+        android:layout_alignStart="@+id/button_nonAlcMixed"
+        android:layout_alignRight="@+id/button_nonAlcMixed"
+        android:layout_alignEnd="@+id/button_nonAlcMixed" />
+
+</RelativeLayout>

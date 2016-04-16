@@ -1,6 +1,7 @@
 package cs477.ontap;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,14 +27,18 @@ public class MyTabActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 viewMenuDialog.cancel();
-                Toast.makeText(MyTabActivity.this, "Open alc menu", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MyTabActivity.this, "Open alc menu", Toast.LENGTH_SHORT).show();
+                Intent toAlcMenu = new Intent(MyTabActivity.this, AlcoholicMenuActivity.class);
+                startActivity(toAlcMenu);
             }
         });
         nonAlcMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 viewMenuDialog.cancel();
-                Toast.makeText(MyTabActivity.this, "Open non-alc menu", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MyTabActivity.this, "Open non-alc menu", Toast.LENGTH_SHORT).show();
+                Intent toNonAlcMenu = new Intent(MyTabActivity.this, NonAlcoholicMenuActivity.class);
+                startActivity(toNonAlcMenu);
             }
         });
 
