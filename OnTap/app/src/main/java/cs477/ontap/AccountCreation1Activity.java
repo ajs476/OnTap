@@ -15,17 +15,12 @@ import com.parse.ParseObject;
  */
 public class AccountCreation1Activity extends AppCompatActivity {
 
-    public String userPasswordString;
-    public String userEmailString;
+    public static String userPasswordString;
+    public static String userEmailString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_creation_1);
-
-        //Parse.initialize(this, "5kXSp6t4KzPgArEbUA16ZJflsknXoNnmoPkygySR", "yEFdo6cxbOYcmCcG7gouaXst7kNZwr9lH58rArTY");
-
-        userPasswordString = "";
-        userEmailString = "";
 
         final EditText userPassword = (EditText)findViewById(R.id.editText_userPassword);
         final EditText userEmail = (EditText)findViewById(R.id.editText_userEmailAddress);
@@ -39,10 +34,11 @@ public class AccountCreation1Activity extends AppCompatActivity {
             public void onClick(View v) {
                 userPasswordString = userPassword.getText().toString();
                 userEmailString = userEmail.getText().toString();
-                ParseObject UserObject = new ParseObject("User");
-                UserObject.put("email", userEmailString);
-                UserObject.put("password", userPasswordString);
-                UserObject.saveInBackground();
+//                ParseObject UserObject = new ParseObject("User");
+//                UserObject.put("email", userEmailString);
+//                UserObject.put("password", userPasswordString);
+//                UserObject.saveInBackground();
+
                 Intent myIntentToAccountCreation2 = new Intent(AccountCreation1Activity.this, AccountCreation2Activity.class);
                 startActivity(myIntentToAccountCreation2);
             }

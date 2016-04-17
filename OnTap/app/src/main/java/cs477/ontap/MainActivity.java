@@ -80,11 +80,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-    public void initParseDB(){
-        if(!dbInitialized){
-            Parse.initialize(this, "5kXSp6t4KzPgArEbUA16ZJflsknXoNnmoPkygySR", "yEFdo6cxbOYcmCcG7gouaXst7kNZwr9lH58rArTY");
-            dbInitialized = true;
-        }
-    }
+    
 }
