@@ -6,14 +6,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.parse.Parse;
+import com.parse.ParseObject;
 import android.widget.Toast;
 
+import bolts.Task;
+
 public class MainActivity extends AppCompatActivity {
+
+    public boolean dbInitialized = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       try{
+           Parse.initialize(this, "5kXSp6t4KzPgArEbUA16ZJflsknXoNnmoPkygySR", "yEFdo6cxbOYcmCcG7gouaXst7kNZwr9lH58rArTY");
+       }
+       catch (IllegalStateException e)
+       {
+
+       }
+
+
 
 
 
@@ -62,5 +79,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void initParseDB(){
+        if(!dbInitialized){
+            Parse.initialize(this, "5kXSp6t4KzPgArEbUA16ZJflsknXoNnmoPkygySR", "yEFdo6cxbOYcmCcG7gouaXst7kNZwr9lH58rArTY");
+            dbInitialized = true;
+        }
     }
 }
