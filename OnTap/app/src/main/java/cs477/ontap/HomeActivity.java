@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class HomeActivity extends AppCompatActivity {
 
-    public String currentLocationName;
+    public static String currentLocationName;
     public String currentLocationMenu;
 
 
@@ -31,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
 
         final EditText currentLocationEditText = (EditText)findViewById(R.id.editText_currentLocationName);
         assert currentLocationEditText != null;
