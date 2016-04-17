@@ -25,6 +25,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+        alertDialog.show();
 
     }
 
@@ -39,5 +40,6 @@ public class UpdateAccountActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+        alertDialog.show();
     }
 }

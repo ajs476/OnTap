@@ -58,6 +58,16 @@
             android:label="OnTap: Non-Alcoholic Drinks"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".UpdateAccountActivity"
+            android:label="OnTap: Update Account Info"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".UpdateBillingActivity"
+            android:label="OnTap: Update Billing Info"
+            android:screenOrientation="portrait">
+        </activity>
 
     </application>
 

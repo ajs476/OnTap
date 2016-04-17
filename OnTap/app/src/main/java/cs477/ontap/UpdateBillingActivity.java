@@ -25,5 +25,6 @@ public class UpdateBillingActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+        alertDialog.show();
     }
 }

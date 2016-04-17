@@ -13,19 +13,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Account Info"
-        android:id="@+id/button2"
-        android:layout_marginTop="68dp"
+        android:id="@+id/button_accountInfo"
+        android:layout_marginTop="79dp"
+        android:onClick="AccountInfoClick"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:onClick="AccountInfoClick"/>
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Billing Info"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
+        android:id="@+id/button_billingInfo"
+        android:layout_below="@+id/button_accountInfo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="69dp"
         android:onClick="BillingInfoClick"/>
@@ -34,8 +33,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Delete Account"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
+        android:id="@+id/button_DeleteAccount"
+        android:layout_below="@+id/button_billingInfo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="76dp"
         android:onClick="DeleteClick"/>
