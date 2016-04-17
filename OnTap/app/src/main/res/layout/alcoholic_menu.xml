@@ -7,8 +7,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Beers &amp; Brews"
-        android:id="@+id/button_beersButton"
-        android:layout_above="@+id/button_mixedDrinksButton"
+        android:id="@+id/button_softDrinksButton"
+        android:layout_above="@+id/button_waterButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="45dp" />
 
@@ -16,24 +16,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wine"
-        android:id="@+id/button_wineButton"
-        android:layout_below="@+id/button_mixedDrinksButton"
+        android:id="@+id/button_alcFreeCocktailButton"
+        android:layout_below="@+id/button_waterButton"
         android:layout_marginTop="53dp"
-        android:layout_alignLeft="@+id/button_beersButton"
-        android:layout_alignStart="@+id/button_beersButton"
-        android:layout_alignRight="@+id/button_beersButton"
-        android:layout_alignEnd="@+id/button_beersButton" />
+        android:layout_alignLeft="@+id/button_softDrinksButton"
+        android:layout_alignStart="@+id/button_softDrinksButton"
+        android:layout_alignRight="@+id/button_softDrinksButton"
+        android:layout_alignEnd="@+id/button_softDrinksButton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mixed Drinks"
-        android:id="@+id/button_mixedDrinksButton"
+        android:text="Cocktails"
+        android:id="@+id/button_waterButton"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/button_beersButton"
-        android:layout_alignStart="@+id/button_beersButton"
-        android:layout_alignRight="@+id/button_beersButton"
-        android:layout_alignEnd="@+id/button_beersButton" />
+        android:layout_alignLeft="@+id/button_softDrinksButton"
+        android:layout_alignStart="@+id/button_softDrinksButton"
+        android:layout_alignRight="@+id/button_softDrinksButton"
+        android:layout_alignEnd="@+id/button_softDrinksButton" />
 
     <TextView
         android:layout_width="wrap_content"

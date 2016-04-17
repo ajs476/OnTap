@@ -15,12 +15,32 @@ public class AlcoholicMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alcoholic_menu);
 
-        Button beerButton = (Button)findViewById(R.id.button_beersButton);
+        Button beerButton = (Button)findViewById(R.id.button_softDrinksButton);
+        Button wineButton = (Button)findViewById(R.id.button_alcFreeCocktailButton);
+        Button cocktailButton = (Button)findViewById(R.id.button_waterButton);
+
+        assert wineButton != null;
         assert beerButton != null;
+        assert cocktailButton != null;
+
+        cocktailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(AlcoholicMenuActivity.this, CocktailMenuActivity.class);
+                startActivity(myIntent);
+            }
+        });
         beerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(AlcoholicMenuActivity.this, BeersMenuActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        wineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(AlcoholicMenuActivity.this, WineMenuActivity.class);
                 startActivity(myIntent);
             }
         });

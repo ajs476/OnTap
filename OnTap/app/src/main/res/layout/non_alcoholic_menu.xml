@@ -7,33 +7,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Soft Drinks"
-        android:id="@+id/button_beersButton"
+        android:id="@+id/button_softDrinksButton"
         android:layout_marginBottom="34dp"
-        android:layout_above="@+id/button_mixedDrinksButton"
-        android:layout_alignLeft="@+id/button_mixedDrinksButton"
-        android:layout_alignStart="@+id/button_mixedDrinksButton"
-        android:layout_alignRight="@+id/button_mixedDrinksButton"
-        android:layout_alignEnd="@+id/button_mixedDrinksButton" />
+        android:layout_above="@+id/button_waterButton"
+        android:layout_alignLeft="@+id/button_waterButton"
+        android:layout_alignStart="@+id/button_waterButton"
+        android:layout_alignRight="@+id/button_waterButton"
+        android:layout_alignEnd="@+id/button_waterButton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mixed Drinks \n (Non-Alcoholic)"
-        android:id="@+id/button_wineButton"
+        android:text="Cocktails \n (Non-Alcoholic)"
+        android:id="@+id/button_alcFreeCocktailButton"
         android:layout_marginTop="29dp"
-        android:layout_below="@+id/button_mixedDrinksButton"
+        android:layout_below="@+id/button_waterButton"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Water"
-        android:id="@+id/button_mixedDrinksButton"
+        android:id="@+id/button_waterButton"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/button_wineButton"
-        android:layout_alignStart="@+id/button_wineButton"
-        android:layout_alignRight="@+id/button_wineButton"
-        android:layout_alignEnd="@+id/button_wineButton" />
+        android:layout_alignLeft="@+id/button_alcFreeCocktailButton"
+        android:layout_alignStart="@+id/button_alcFreeCocktailButton"
+        android:layout_alignRight="@+id/button_alcFreeCocktailButton"
+        android:layout_alignEnd="@+id/button_alcFreeCocktailButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,10 +52,10 @@
         android:text="Other"
         android:id="@+id/button_otherDrink"
         android:layout_marginTop="31dp"
-        android:layout_below="@+id/button_wineButton"
-        android:layout_alignLeft="@+id/button_wineButton"
-        android:layout_alignStart="@+id/button_wineButton"
-        android:layout_alignRight="@+id/button_wineButton"
-        android:layout_alignEnd="@+id/button_wineButton" />
+        android:layout_below="@+id/button_alcFreeCocktailButton"
+        android:layout_alignLeft="@+id/button_alcFreeCocktailButton"
+        android:layout_alignStart="@+id/button_alcFreeCocktailButton"
+        android:layout_alignRight="@+id/button_alcFreeCocktailButton"
+        android:layout_alignEnd="@+id/button_alcFreeCocktailButton" />
 
 </RelativeLayout>

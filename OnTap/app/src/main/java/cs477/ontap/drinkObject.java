@@ -17,6 +17,7 @@ public class drinkObject {
         drinkAlcohol = thisDrinksAlcohol;
         drinkType = thisDrinksType;
         drinkPrice = thisDrinksPrice;
+
     }
 
     public String getDrinkName(){

@@ -16,6 +16,7 @@ import com.parse.GetCallback;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,6 +26,13 @@ public class HomeActivity extends AppCompatActivity {
 
     public static String currentLocationName;
     public static String currentLocationMenu;
+
+    public static List<drinkObject> beerMenu;
+    public static List<drinkObject> wineMenu;
+    public static List<drinkObject> cocktailMenu;
+    public static List<drinkObject> softDrinkMenu;
+    public static List<drinkObject> alcFreeCocktailMenu;
+    public static List<drinkObject> otherDrinkMenu;
 
 
     @Override
@@ -71,6 +79,8 @@ public class HomeActivity extends AppCompatActivity {
                                         Toast.makeText(HomeActivity.this, "Location Match!", Toast.LENGTH_SHORT).show();
                                         currentLocationName = menus.get(i).getString("locName");
                                         currentLocationMenu = menus.get(i).getString("menu");
+
+
                                         Toast.makeText(HomeActivity.this, currentLocationMenu, Toast.LENGTH_SHORT).show();
                                         currentLocationEditText.setText(currentLocationName);
                                         locationFound = true;
@@ -79,6 +89,68 @@ public class HomeActivity extends AppCompatActivity {
                                         startActivity(myIntent);
                                     }
                                 }
+
+
+                                //String currentLocationMenuRaw = HomeActivity.currentLocationMenu;
+                                String[] splitMenu = currentLocationMenu.split("-");
+
+                                List<drinkObject> entireDrinkMenu = new ArrayList<drinkObject>();
+                                beerMenu = new ArrayList<drinkObject>();
+                                wineMenu = new ArrayList<drinkObject>();
+                                cocktailMenu = new ArrayList<drinkObject>();
+                                softDrinkMenu = new ArrayList<drinkObject>();
+                                alcFreeCocktailMenu = new ArrayList<drinkObject>();
+                                otherDrinkMenu = new ArrayList<drinkObject>();
+
+
+                                //String[] values = new String[] {"","","","","","","","","","","","","","","","","","","","","","",""};
+
+                                //Toast.makeText(BeersMenuActivity.this, splitMenu[0], Toast.LENGTH_SHORT).show();
+                                int k = 0;
+                                for (int j = 0; j < (splitMenu.length); j += 4) {
+
+
+                                    String drinkName = splitMenu[j];
+                                    //Toast.makeText(HomeActivity.this, drinkName, Toast.LENGTH_SHORT).show();
+                                    String drinkAlcohol = splitMenu[j + 1];
+                                    //Toast.makeText(HomeActivity.this, drinkAlcohol, Toast.LENGTH_SHORT).show();
+                                    String drinkType = splitMenu[j + 2];
+                                    //Toast.makeText(HomeActivity.this, drinkType, Toast.LENGTH_SHORT).show();
+                                    String drinkPrice = splitMenu[j + 3];
+                                    //Toast.makeText(HomeActivity.this, drinkPrice, Toast.LENGTH_SHORT).show();
+                                    //values[k] = drinkName;
+                                    //k++;
+
+                                    // create entire list of all drink objects
+                                    drinkObject newDrink = new drinkObject(drinkName, drinkAlcohol, drinkType, Integer.parseInt(drinkPrice));
+                                    entireDrinkMenu.add(newDrink);
+
+
+                                }
+
+                                // loop through entire drink list and group drink types in their respective menu-lists
+                                for (int x = 0; x < entireDrinkMenu.size(); x++) {
+                                    if (entireDrinkMenu.get(x).getDrinkType().equals("Beer")) {
+                                        beerMenu.add(entireDrinkMenu.get(x));
+                                    }
+                                    if (entireDrinkMenu.get(x).getDrinkType().equals("Wine")) {
+                                        wineMenu.add(entireDrinkMenu.get(x));
+                                    }
+                                    if (entireDrinkMenu.get(x).getDrinkType().equals("Cocktail")) {
+                                        cocktailMenu.add(entireDrinkMenu.get(x));
+                                    }
+                                    if(entireDrinkMenu.get(x).getDrinkType().equals("Soft Drink")){
+                                        softDrinkMenu.add(entireDrinkMenu.get(x));
+                                    }
+                                    if(entireDrinkMenu.get(x).getDrinkType().equals("AlcFreeCocktail")){
+                                        alcFreeCocktailMenu.add(entireDrinkMenu.get(x));
+                                    }
+                                    if(entireDrinkMenu.get(x).getDrinkType().equals("Other")){
+                                        otherDrinkMenu.add(entireDrinkMenu.get(x));
+                                    }
+                                }
+
+
                                 if (!locationFound) {
                                     Toast.makeText(HomeActivity.this, "Did not find location", Toast.LENGTH_SHORT).show();
                                 }
