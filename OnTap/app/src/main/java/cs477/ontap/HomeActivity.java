@@ -24,7 +24,7 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     public static String currentLocationName;
-    public String currentLocationMenu;
+    public static String currentLocationMenu;
 
 
     @Override
@@ -71,6 +71,7 @@ public class HomeActivity extends AppCompatActivity {
                                         Toast.makeText(HomeActivity.this, "Location Match!", Toast.LENGTH_SHORT).show();
                                         currentLocationName = menus.get(i).getString("locName");
                                         currentLocationMenu = menus.get(i).getString("menu");
+                                        Toast.makeText(HomeActivity.this, currentLocationMenu, Toast.LENGTH_SHORT).show();
                                         currentLocationEditText.setText(currentLocationName);
                                         locationFound = true;
 

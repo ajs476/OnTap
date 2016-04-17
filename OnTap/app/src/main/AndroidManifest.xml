@@ -58,6 +58,11 @@
             android:label="OnTap: Non-Alcoholic Drinks"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".BeersMenuActivity"
+            android:label="OnTap: Beer-Menu"
+            android:screenOrientation="portrait">
+        </activity>
 
     </application>
 
