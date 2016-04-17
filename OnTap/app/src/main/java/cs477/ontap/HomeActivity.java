@@ -11,28 +11,35 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+
+import java.util.List;
 
 /**
  * Created by Alex on 4/15/2016.
  */
 public class HomeActivity extends AppCompatActivity {
 
-    public EditText locationTest;
+    public String currentLocationName;
+    public String currentLocationMenu;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        locationTest = (EditText)findViewById(R.id.editText_locationTest);
-
+        final EditText currentLocationEditText = (EditText)findViewById(R.id.editText_currentLocationName);
+        assert currentLocationEditText != null;
 
         final Dialog locationDialog = new Dialog(this);
         locationDialog.setContentView(R.layout.location_select_alert);
         locationDialog.setTitle("Location Selection");
         locationDialog.setCancelable(false);
+        final EditText locationCodeText = (EditText)locationDialog.findViewById(R.id.editText_locationCode);
         Button cancelLocationSelectionButton = (Button)locationDialog.findViewById(R.id.button_locationCancel);
         cancelLocationSelectionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,26 +52,44 @@ public class HomeActivity extends AppCompatActivity {
         submitLocationAlertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(HomeActivity.this, "Location Selection Successful!", Toast.LENGTH_SHORT).show();
+
+                final String locationCodeString = locationCodeText.getText().toString();
+
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Menu");
-                query.getInBackground("0toXQtPVHK", new GetCallback<ParseObject>() {
-                    @Override
-                    public void done(ParseObject object, com.parse.ParseException e) {
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    public void done(List<ParseObject> menus, com.parse.ParseException e) {
                         if (e == null) {
-                            // object will be your game score
-                            String locationName = object.getString("locName");
-                            locationTest.setText(locationName);
+                            if (menus.size() == 0) {
+                                Toast.makeText(HomeActivity.this, "No Locations Available..", Toast.LENGTH_SHORT).show();
+                            } else {
+
+                                boolean locationFound = false;
+                                for (int i = 0; i < menus.size(); i++) {
+                                    if (menus.get(i).getString("locID").equals(locationCodeString)) {
+                                        //Toast.makeText(MainActivity.this, userID, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(HomeActivity.this, "Location Match!", Toast.LENGTH_SHORT).show();
+                                        currentLocationName = menus.get(i).getString("locName");
+                                        currentLocationMenu = menus.get(i).getString("menu");
+                                        currentLocationEditText.setText(currentLocationName);
+                                        locationFound = true;
+
+                                        Intent myIntent = new Intent(HomeActivity.this, MyTabActivity.class);
+                                        startActivity(myIntent);
+                                    }
+                                }
+                                if (!locationFound) {
+                                    Toast.makeText(HomeActivity.this, "Did not find location", Toast.LENGTH_SHORT).show();
+                                }
+                            }
 
                         } else {
-                            // something went wrong
-
+                            //objectRetrievalFailed();
+                            Toast.makeText(HomeActivity.this, "Error", Toast.LENGTH_SHORT).show();
                         }
                     }
-
-
                 });
-                Intent myIntent = new Intent(HomeActivity.this, MyTabActivity.class);
-                startActivity(myIntent);
+//                Intent myIntent = new Intent(HomeActivity.this, MyTabActivity.class);
+//                startActivity(myIntent);
             }
         });
 
@@ -74,7 +99,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(HomeActivity.this, "Open OnTap Locations selector alert", Toast.LENGTH_SHORT).show();
-                locationDialog.show();
+                if(currentLocationName == null){
+                    locationDialog.show();
+                }
+                else{
+                    Intent myIntent = new Intent(HomeActivity.this, MyTabActivity.class);
+                    startActivity(myIntent);
+                }
+
             }
         });
 
