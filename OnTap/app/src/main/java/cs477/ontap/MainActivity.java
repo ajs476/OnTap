@@ -23,6 +23,7 @@ import bolts.Task;
 public class MainActivity extends AppCompatActivity {
 
     public boolean dbInitialized = false;
+    public String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                                 boolean accountFound = false;
                                 for (int i = 0; i < objects.size(); i++) {
                                     if (objects.get(i).getString("email").equals(emailLoginString) && objects.get(i).getString("password").equals(emailPasswordString)) {
+                                        userID = objects.get(i).getObjectId();
+                                        //Toast.makeText(MainActivity.this, userID, Toast.LENGTH_SHORT).show();
                                         Toast.makeText(MainActivity.this, "Account Match!", Toast.LENGTH_SHORT).show();
                                         accountFound = true;
 
