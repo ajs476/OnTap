@@ -23,7 +23,7 @@ import bolts.Task;
 public class MainActivity extends AppCompatActivity {
 
     public boolean dbInitialized = false;
-    public String userID;
+    public static String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
