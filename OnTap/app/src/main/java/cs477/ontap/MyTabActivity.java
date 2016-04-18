@@ -17,6 +17,8 @@ public class MyTabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_tab);
 
+        setTitle(HomeActivity.currentLocationName + ": MyTab & Order Status");
+
         final Dialog viewMenuDialog = new Dialog(this);
         viewMenuDialog.setContentView(R.layout.drink_type_alert);
         viewMenuDialog.setTitle("Menu Selection");

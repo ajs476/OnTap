@@ -68,8 +68,35 @@
             android:label="OnTap: Update Billing Info"
             android:screenOrientation="portrait">
         </activity>
-
+        <activity
+            android:name=".BeersMenuActivity"
+            android:label="OnTap: Beer-Menu"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".WineMenuActivity"
+            android:label="OnTap: Wine-Menu"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".CocktailMenuActivity"
+            android:label="OnTap: Cocktail-Menu"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".AlcFreeCocktailMenuActivity"
+            android:label="OnTap: Alc-Free Cocktail-Menu"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SoftDrinkMenuActivity"
+            android:label="OnTap: Soft Drink-Menu"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".OtherDrinkMenuActivity"
+            android:label="OnTap: Cocktail-Menu"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
-
-
 </manifest>
