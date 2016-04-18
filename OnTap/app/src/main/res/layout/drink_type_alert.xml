@@ -7,21 +7,21 @@
         android:layout_height="wrap_content"
         android:text="Alcoholic Menu"
         android:id="@+id/button_alcoholicMenu"
-        android:layout_marginTop="188dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button_nonAlcoholicMenu"
-        android:layout_alignStart="@+id/button_nonAlcoholicMenu"
-        android:layout_alignRight="@+id/button_nonAlcoholicMenu"
-        android:layout_alignEnd="@+id/button_nonAlcoholicMenu" />
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/textView13"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Non-Alcoholic Menu"
         android:id="@+id/button_nonAlcoholicMenu"
-        android:layout_marginTop="29dp"
+        android:gravity="center_horizontal"
         android:layout_below="@+id/button_alcoholicMenu"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
         android:id="@+id/textView13"
         android:textSize="19dp"
         android:gravity="center_horizontal"
-        android:layout_alignBottom="@+id/button_alcoholicMenu"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="96dp" />
+        android:layout_marginTop="100dp" />
 </RelativeLayout>

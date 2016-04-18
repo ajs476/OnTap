@@ -8,7 +8,7 @@
         android:text="Drink"
         android:id="@+id/textView6"
         android:textSize="28dp"
-        android:layout_marginLeft="43dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginStart="43dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -19,25 +19,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Amount"
-        android:id="@+id/textView7"
-        android:textSize="28dp"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Cost"
         android:id="@+id/textView8"
         android:textSize="28dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginStart="42dp"
-        android:layout_alignTop="@+id/textView7"
-        android:layout_toRightOf="@+id/textView7"
-        android:layout_toEndOf="@+id/textView7"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_above="@+id/editText_tabItem1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="50dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -55,8 +44,8 @@
         android:text="Add Item"
         android:id="@+id/button_addItem"
         android:layout_alignTop="@+id/button_placeOrder"
-        android:layout_alignRight="@+id/editText_tabCost7"
-        android:layout_alignEnd="@+id/editText_tabCost7" />
+        android:layout_alignRight="@+id/editText_tabCost4"
+        android:layout_alignEnd="@+id/editText_tabCost4" />
 
     <EditText
         android:background="@android:color/transparent"
@@ -67,38 +56,24 @@
         android:layout_alignLeft="@+id/textView6"
         android:layout_alignStart="@+id/textView6"
         android:layout_marginTop="20dp"
-        android:text="Coors"
-        android:layout_alignRight="@+id/button_placeOrder"
-        android:layout_alignEnd="@+id/button_placeOrder"
-        android:layout_marginRight="20dp" />
+        android:layout_toLeftOf="@+id/editText_tabCost1"
+        android:layout_toStartOf="@+id/editText_tabCost1"
+        android:text="Empty" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount1"
-        android:layout_alignTop="@+id/editText_tabItem1"
-        android:layout_alignLeft="@+id/textView7"
-        android:layout_alignStart="@+id/textView7"
-        android:layout_alignRight="@+id/textView7"
-        android:layout_alignEnd="@+id/textView7"
-        android:text="1"
-        android:layout_above="@+id/editText_tabItem2"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="20dp" />
+
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabCost1"
-        android:text="4.99"
         android:layout_above="@+id/editText_tabCost2"
         android:layout_alignLeft="@+id/textView8"
         android:layout_alignStart="@+id/textView8"
         android:layout_alignRight="@+id/textView8"
         android:layout_alignEnd="@+id/textView8"
-        android:gravity="right" />
+        android:gravity="right"
+        android:text="0" />
 
     <EditText
         android:background="@android:color/transparent"
@@ -108,36 +83,20 @@
         android:layout_below="@+id/editText_tabItem1"
         android:layout_alignLeft="@+id/editText_tabItem1"
         android:layout_alignStart="@+id/editText_tabItem1"
-        android:layout_alignRight="@+id/editText_tabItem1"
-        android:layout_alignEnd="@+id/editText_tabItem1"
-        android:text="Whiskey" />
+        android:layout_toLeftOf="@+id/editText_tabCost1"
+        android:layout_toStartOf="@+id/editText_tabCost1" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount2"
-        android:layout_below="@+id/editText_tabAmount1"
-        android:layout_alignLeft="@+id/editText_tabAmount1"
-        android:layout_alignStart="@+id/editText_tabAmount1"
-        android:layout_alignRight="@+id/editText_tabAmount1"
-        android:layout_alignEnd="@+id/editText_tabAmount1"
-        android:text="1"
-        android:layout_alignBottom="@+id/editText_tabItem2" />
+
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabCost2"
-        android:layout_alignRight="@+id/editText_tabCost1"
-        android:layout_alignEnd="@+id/editText_tabCost1"
-        android:text="7.99"
-        android:layout_alignBottom="@+id/editText_tabAmount2"
         android:gravity="right"
-        android:layout_below="@+id/editText_tabAmount1"
-        android:layout_alignLeft="@+id/editText_tabCost1"
-        android:layout_alignStart="@+id/editText_tabCost1" />
+        android:layout_alignBottom="@+id/editText_tabItem2"
+        android:layout_alignRight="@+id/editText_tabCost1"
+        android:layout_alignEnd="@+id/editText_tabCost1" />
 
     <EditText
         android:background="@android:color/transparent"
@@ -148,34 +107,8 @@
         android:layout_alignLeft="@+id/editText_tabItem2"
         android:layout_alignStart="@+id/editText_tabItem2"
         android:layout_alignRight="@+id/editText_tabItem2"
-        android:layout_alignEnd="@+id/editText_tabItem2"
-        android:text="Test" />
+        android:layout_alignEnd="@+id/editText_tabItem2" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount3"
-        android:text="1"
-        android:layout_alignTop="@+id/editText_tabItem3"
-        android:layout_alignLeft="@+id/editText_tabAmount2"
-        android:layout_alignStart="@+id/editText_tabAmount2"
-        android:layout_alignRight="@+id/editText_tabAmount2"
-        android:layout_alignEnd="@+id/editText_tabAmount2" />
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabCost3"
-        android:text="7.99"
-        android:layout_alignTop="@+id/editText_tabAmount3"
-        android:layout_alignLeft="@+id/editText_tabCost2"
-        android:layout_alignStart="@+id/editText_tabCost2"
-        android:layout_alignRight="@+id/editText_tabCost2"
-        android:layout_alignEnd="@+id/editText_tabCost2"
-        android:layout_alignBottom="@+id/editText_tabAmount3"
-        android:gravity="right" />
 
     <EditText
         android:background="@android:color/transparent"
@@ -186,34 +119,19 @@
         android:layout_alignLeft="@+id/editText_tabItem3"
         android:layout_alignStart="@+id/editText_tabItem3"
         android:layout_alignRight="@+id/editText_tabItem3"
-        android:layout_alignEnd="@+id/editText_tabItem3"
-        android:text="Test" />
+        android:layout_alignEnd="@+id/editText_tabItem3" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount4"
-        android:text="1"
-        android:layout_alignTop="@+id/editText_tabItem4"
-        android:layout_alignLeft="@+id/editText_tabAmount3"
-        android:layout_alignStart="@+id/editText_tabAmount3"
-        android:layout_alignRight="@+id/editText_tabAmount3"
-        android:layout_alignEnd="@+id/editText_tabAmount3" />
+
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabCost4"
-        android:text="7.99"
-        android:layout_alignTop="@+id/editText_tabAmount4"
-        android:layout_alignLeft="@+id/editText_tabCost3"
-        android:layout_alignStart="@+id/editText_tabCost3"
-        android:layout_alignRight="@+id/editText_tabCost3"
-        android:layout_alignEnd="@+id/editText_tabCost3"
-        android:layout_alignBottom="@+id/editText_tabAmount4"
-        android:gravity="right" />
+        android:gravity="right"
+        android:layout_above="@+id/editText_tabCost5"
+        android:layout_alignRight="@+id/editText_tabCost5"
+        android:layout_alignEnd="@+id/editText_tabCost5" />
 
     <EditText
         android:background="@android:color/transparent"
@@ -224,34 +142,8 @@
         android:layout_alignLeft="@+id/editText_tabItem4"
         android:layout_alignStart="@+id/editText_tabItem4"
         android:layout_alignRight="@+id/editText_tabItem4"
-        android:layout_alignEnd="@+id/editText_tabItem4"
-        android:text="Test" />
+        android:layout_alignEnd="@+id/editText_tabItem4" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount5"
-        android:text="1"
-        android:layout_alignTop="@+id/editText_tabItem5"
-        android:layout_alignLeft="@+id/editText_tabAmount4"
-        android:layout_alignStart="@+id/editText_tabAmount4"
-        android:layout_alignRight="@+id/editText_tabAmount4"
-        android:layout_alignEnd="@+id/editText_tabAmount4" />
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabCost5"
-        android:text="7.99"
-        android:layout_alignTop="@+id/editText_tabAmount5"
-        android:layout_alignLeft="@+id/editText_tabCost4"
-        android:layout_alignStart="@+id/editText_tabCost4"
-        android:layout_alignRight="@+id/editText_tabCost4"
-        android:layout_alignEnd="@+id/editText_tabCost4"
-        android:layout_alignBottom="@+id/editText_tabAmount5"
-        android:gravity="right" />
 
     <EditText
         android:background="@android:color/transparent"
@@ -262,34 +154,8 @@
         android:layout_alignLeft="@+id/editText_tabItem5"
         android:layout_alignStart="@+id/editText_tabItem5"
         android:layout_alignRight="@+id/editText_tabItem5"
-        android:layout_alignEnd="@+id/editText_tabItem5"
-        android:text="Test" />
+        android:layout_alignEnd="@+id/editText_tabItem5" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount6"
-        android:layout_alignTop="@+id/editText_tabItem6"
-        android:layout_alignLeft="@+id/editText_tabAmount5"
-        android:layout_alignStart="@+id/editText_tabAmount5"
-        android:layout_alignRight="@+id/editText_tabAmount5"
-        android:layout_alignEnd="@+id/editText_tabAmount5"
-        android:text="1" />
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabCost6"
-        android:layout_alignTop="@+id/editText_tabAmount6"
-        android:layout_alignLeft="@+id/editText_tabCost5"
-        android:layout_alignStart="@+id/editText_tabCost5"
-        android:layout_alignRight="@+id/editText_tabCost5"
-        android:layout_alignEnd="@+id/editText_tabCost5"
-        android:layout_above="@+id/editText_tabAmount7"
-        android:text="1.99"
-        android:gravity="right" />
 
     <EditText
         android:background="@android:color/transparent"
@@ -300,56 +166,30 @@
         android:layout_alignLeft="@+id/editText_tabItem6"
         android:layout_alignStart="@+id/editText_tabItem6"
         android:layout_alignRight="@+id/editText_tabItem6"
-        android:layout_alignEnd="@+id/editText_tabItem6"
-        android:text="Test" />
+        android:layout_alignEnd="@+id/editText_tabItem6" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount7"
-        android:layout_below="@+id/editText_tabAmount6"
-        android:layout_alignLeft="@+id/editText_tabAmount6"
-        android:layout_alignStart="@+id/editText_tabAmount6"
-        android:layout_alignRight="@+id/editText_tabAmount6"
-        android:layout_alignEnd="@+id/editText_tabAmount6"
-        android:text="2" />
-
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabCost7"
-        android:layout_below="@+id/editText_tabCost6"
-        android:layout_alignLeft="@+id/editText_tabCost6"
-        android:layout_alignStart="@+id/editText_tabCost6"
-        android:layout_alignRight="@+id/editText_tabCost6"
-        android:layout_alignEnd="@+id/editText_tabCost6"
-        android:layout_alignBottom="@+id/editText_tabAmount7"
-        android:text="1.99"
-        android:gravity="right" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Status:"
-        android:id="@+id/textView9"
+        android:id="@+id/textView_statusTitle"
         android:textSize="28dp"
         android:textStyle="bold"
-        android:layout_below="@+id/editText_item12"
-        android:layout_alignLeft="@+id/editText_item12"
-        android:layout_alignStart="@+id/editText_item12"
+        android:layout_below="@+id/editText_tabItem12"
+        android:layout_alignLeft="@+id/editText_tabItem12"
+        android:layout_alignStart="@+id/editText_tabItem12"
         android:layout_marginTop="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Processing"
-        android:id="@+id/textView10"
+        android:id="@+id/textView_orderStatus"
         android:textSize="22dp"
-        android:layout_below="@+id/textView9"
-        android:layout_alignLeft="@+id/textView9"
-        android:layout_alignStart="@+id/textView9"
+        android:layout_below="@+id/textView_statusTitle"
+        android:layout_alignLeft="@+id/textView_statusTitle"
+        android:layout_alignStart="@+id/textView_statusTitle"
         android:layout_marginBottom="10dp" />
 
     <TextView
@@ -359,185 +199,172 @@
         android:id="@+id/textView11"
         android:textSize="28dp"
         android:textStyle="bold"
-        android:layout_below="@+id/editText_tabCost12"
-        android:layout_alignRight="@+id/editText_tabCost12"
-        android:layout_alignEnd="@+id/editText_tabCost12"
-        android:layout_marginTop="10dp" />
+        android:layout_alignTop="@+id/textView_statusTitle"
+        android:layout_alignRight="@+id/button_addItem"
+        android:layout_alignEnd="@+id/button_addItem" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$54.95"
-        android:id="@+id/textView12"
+        android:id="@+id/textView_orderTotalCost"
         android:textSize="22dp"
         android:layout_below="@+id/textView11"
         android:layout_alignRight="@+id/textView11"
         android:layout_alignEnd="@+id/textView11"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:text="$ 0" />
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabItem8"
-        android:text="Test"
         android:layout_below="@+id/editText_tabItem7"
         android:layout_alignLeft="@+id/editText_tabItem7"
-        android:layout_alignStart="@+id/editText_tabItem7" />
+        android:layout_alignStart="@+id/editText_tabItem7"
+        android:layout_alignRight="@+id/editText_tabItem7"
+        android:layout_alignEnd="@+id/editText_tabItem7" />
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabItem9"
-        android:text="Test"
         android:layout_below="@+id/editText_tabItem8"
         android:layout_alignLeft="@+id/editText_tabItem8"
-        android:layout_alignStart="@+id/editText_tabItem8" />
+        android:layout_alignStart="@+id/editText_tabItem8"
+        android:layout_alignRight="@+id/editText_tabItem8"
+        android:layout_alignEnd="@+id/editText_tabItem8" />
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabItem10"
-        android:text="Test"
         android:layout_below="@+id/editText_tabItem9"
         android:layout_alignLeft="@+id/editText_tabItem9"
-        android:layout_alignStart="@+id/editText_tabItem9" />
+        android:layout_alignStart="@+id/editText_tabItem9"
+        android:layout_alignRight="@+id/editText_tabItem9"
+        android:layout_alignEnd="@+id/editText_tabItem9" />
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabItem11"
-        android:text="Test"
         android:layout_below="@+id/editText_tabItem10"
         android:layout_alignLeft="@+id/editText_tabItem10"
-        android:layout_alignStart="@+id/editText_tabItem10" />
+        android:layout_alignStart="@+id/editText_tabItem10"
+        android:layout_alignRight="@+id/editText_tabItem10"
+        android:layout_alignEnd="@+id/editText_tabItem10" />
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText_item12"
-        android:text="Test"
+        android:id="@+id/editText_tabItem12"
         android:layout_below="@+id/editText_tabItem11"
         android:layout_alignLeft="@+id/editText_tabItem11"
-        android:layout_alignStart="@+id/editText_tabItem11" />
+        android:layout_alignStart="@+id/editText_tabItem11"
+        android:layout_alignRight="@+id/editText_tabItem11"
+        android:layout_alignEnd="@+id/editText_tabItem11" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount8"
-        android:text="2"
-        android:layout_below="@+id/editText_tabAmount7"
-        android:layout_alignLeft="@+id/editText_tabAmount7"
-        android:layout_alignStart="@+id/editText_tabAmount7" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount9"
-        android:text="2"
-        android:layout_below="@+id/editText_tabAmount8"
-        android:layout_alignLeft="@+id/editText_tabAmount8"
-        android:layout_alignStart="@+id/editText_tabAmount8" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount10"
-        android:text="2"
-        android:layout_below="@+id/editText_tabAmount9"
-        android:layout_alignLeft="@+id/editText_tabAmount9"
-        android:layout_alignStart="@+id/editText_tabAmount9" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount11"
-        android:text="2"
-        android:layout_below="@+id/editText_tabAmount10"
-        android:layout_alignLeft="@+id/editText_tabAmount10"
-        android:layout_alignStart="@+id/editText_tabAmount10" />
 
-    <EditText
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_tabAmount12"
-        android:text="2"
-        android:layout_below="@+id/editText_tabAmount11"
-        android:layout_alignLeft="@+id/editText_tabAmount11"
-        android:layout_alignStart="@+id/editText_tabAmount11" />
+
+
+
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabCost8"
-        android:text="1.99"
-        android:layout_below="@+id/editText_tabCost7"
-        android:layout_alignLeft="@+id/editText_tabCost7"
-        android:layout_alignStart="@+id/editText_tabCost7"
-        android:layout_alignRight="@+id/editText_tabCost7"
-        android:layout_alignEnd="@+id/editText_tabCost7"
-        android:gravity="right" />
+        android:gravity="right"
+        android:layout_above="@+id/editText_tabCost9"
+        android:layout_alignRight="@+id/textView11"
+        android:layout_alignEnd="@+id/textView11" />
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabCost9"
-        android:text="1.99"
-        android:layout_below="@+id/editText_tabCost8"
-        android:layout_alignLeft="@+id/editText_tabCost8"
-        android:layout_alignStart="@+id/editText_tabCost8"
-        android:layout_alignRight="@+id/editText_tabCost8"
-        android:layout_alignEnd="@+id/editText_tabCost8"
-        android:gravity="right" />
+        android:gravity="right"
+        android:layout_above="@+id/editText_tabCost10"
+        android:layout_alignRight="@+id/textView11"
+        android:layout_alignEnd="@+id/textView11" />
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabCost10"
-        android:text="1.99"
-        android:layout_below="@+id/editText_tabCost9"
-        android:layout_alignLeft="@+id/editText_tabCost9"
-        android:layout_alignStart="@+id/editText_tabCost9"
-        android:layout_alignRight="@+id/editText_tabCost9"
-        android:layout_alignEnd="@+id/editText_tabCost9"
-        android:gravity="right" />
+        android:gravity="right"
+        android:layout_above="@+id/editText_tabCost11"
+        android:layout_alignRight="@+id/textView11"
+        android:layout_alignEnd="@+id/textView11" />
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabCost11"
-        android:text="1.99"
-        android:layout_below="@+id/editText_tabCost10"
-        android:layout_alignLeft="@+id/editText_tabCost10"
-        android:layout_alignStart="@+id/editText_tabCost10"
-        android:layout_alignRight="@+id/editText_tabCost10"
-        android:layout_alignEnd="@+id/editText_tabCost10"
-        android:gravity="right" />
+        android:gravity="right"
+        android:layout_above="@+id/editText_tabCost12"
+        android:layout_alignRight="@+id/editText_tabCost12"
+        android:layout_alignEnd="@+id/editText_tabCost12" />
 
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText_tabCost12"
-        android:text="1.99"
-        android:layout_below="@+id/editText_tabCost11"
-        android:layout_alignLeft="@+id/editText_tabCost11"
-        android:layout_alignStart="@+id/editText_tabCost11"
-        android:layout_alignRight="@+id/editText_tabCost11"
-        android:layout_alignEnd="@+id/editText_tabCost11"
-        android:gravity="right" />
+        android:gravity="right"
+        android:layout_above="@+id/textView_statusTitle"
+        android:layout_alignRight="@+id/textView11"
+        android:layout_alignEnd="@+id/textView11" />
+
+    <EditText
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_tabCost7"
+        android:gravity="right"
+        android:layout_above="@+id/editText_tabCost8"
+        android:layout_alignRight="@+id/textView11"
+        android:layout_alignEnd="@+id/textView11" />
+
+    <EditText
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_tabCost6"
+        android:gravity="right"
+        android:layout_above="@+id/editText_tabCost7"
+        android:layout_alignRight="@+id/textView8"
+        android:layout_alignEnd="@+id/textView8" />
+
+    <EditText
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_tabCost5"
+        android:gravity="right"
+        android:layout_below="@+id/editText_tabItem4"
+        android:layout_alignRight="@+id/textView8"
+        android:layout_alignEnd="@+id/textView8" />
+
+    <EditText
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_tabCost3"
+        android:gravity="right"
+        android:layout_above="@+id/editText_tabCost4"
+        android:layout_alignRight="@+id/editText_tabCost1"
+        android:layout_alignEnd="@+id/editText_tabCost1" />
 
 </RelativeLayout>

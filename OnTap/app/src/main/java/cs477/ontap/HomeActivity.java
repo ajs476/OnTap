@@ -34,6 +34,8 @@ public class HomeActivity extends AppCompatActivity {
     public static List<drinkObject> alcFreeCocktailMenu;
     public static List<drinkObject> otherDrinkMenu;
 
+    public static List<drinkObject> myTabOrder = new ArrayList<drinkObject>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

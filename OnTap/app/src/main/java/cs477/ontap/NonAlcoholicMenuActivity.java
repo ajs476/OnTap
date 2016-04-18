@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.List;
+
 /**
  * Created by Cherie on 4/15/2016.
  */
@@ -15,6 +17,8 @@ public class NonAlcoholicMenuActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.non_alcoholic_menu);
+
+        final List<drinkObject> myTabOrder = HomeActivity.myTabOrder;
 
 
         Button softDrinkButton = (Button)findViewById(R.id.button_softDrinksButton);
@@ -37,9 +41,11 @@ public class NonAlcoholicMenuActivity extends AppCompatActivity{
         waterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(NonAlcoholicMenuActivity.this, "WATERRRRR", Toast.LENGTH_SHORT).show();
-//                Intent myIntent = new Intent(NonAlcoholicMenuActivity.this, waterMenuActivity.class);
-//                startActivity(myIntent);
+                //Toast.makeText(NonAlcoholicMenuActivity.this, "WATERRRRR", Toast.LENGTH_SHORT).show();
+                drinkObject newDrink = new drinkObject("Water","N","Beer",0);
+                myTabOrder.add(newDrink);
+                Intent myIntent = new Intent(NonAlcoholicMenuActivity.this, MyTabActivity.class);
+                startActivity(myIntent);
             }
         });
         alcFreeCocktailButton.setOnClickListener(new View.OnClickListener() {

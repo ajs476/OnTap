@@ -10,6 +10,7 @@ public class drinkObject {
     public String drinkAlcohol;
     public String drinkType;
     public int drinkPrice;
+    public int drinkQuantity;
 
     public drinkObject(String thisDrinksName, String thisDrinksAlcohol, String thisDrinksType, int thisDrinksPrice){
 
@@ -17,6 +18,7 @@ public class drinkObject {
         drinkAlcohol = thisDrinksAlcohol;
         drinkType = thisDrinksType;
         drinkPrice = thisDrinksPrice;
+        drinkQuantity = 1;
 
     }
 
@@ -35,4 +37,13 @@ public class drinkObject {
     public int getDrinkPrice(){
         return drinkPrice;
     }
+
+    public void setDrinkQuantity(int newQuantity){
+        drinkQuantity = newQuantity;
+    }
+
+    public int getDrinkQuantity(){
+        return drinkQuantity;
+    }
+
 }
