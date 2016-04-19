@@ -172,6 +172,23 @@ public class MyTabActivity extends AppCompatActivity {
             }
         });
 
+        final Dialog orderCompleteDialog = new Dialog(this);
+        orderCompleteDialog.setContentView(R.layout.order_complete_alert);
+        orderCompleteDialog.setTitle("Order Ready For Pickup!");
+        orderCompleteDialog.setCancelable(false);
+        Button okButton = (Button)orderCompleteDialog.findViewById(R.id.button_okButton);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                orderCompleteDialog.cancel();
+                //Toast.makeText(MyTabActivity.this, "Open alc menu", Toast.LENGTH_SHORT).show();
+//                Intent toAlcMenu = new Intent(MyTabActivity.this, AlcoholicMenuActivity.class);
+//                startActivity(toAlcMenu);
+            }
+        });
+
+
+
         if(myTabOrder.size() == 0){
             viewMenuDialog.show();
         }
@@ -250,6 +267,7 @@ public class MyTabActivity extends AppCompatActivity {
                                                     } else if (objects.get(i).getString("userID").equals(userID) && objects.get(i).getInt("Status") == 2) {
                                                         orderStatusText.setText("Complete");
                                                         orderFound = true;
+                                                        orderCompleteDialog.show();
                                                     }
                                                 }
                                                 if (!orderFound) {
