@@ -19,6 +19,8 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.microedition.khronos.egl.EGLDisplay;
+
 /**
  * Created by Alex on 4/15/2016.
  */
@@ -42,9 +44,41 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        final String userOrderIDString = MyTabActivity.userOrderID;
+
+        final Dialog tippingDialog = new Dialog(this);
+        tippingDialog.setContentView(R.layout.tip_alert);
+        tippingDialog.setTitle("Enjoy your order!");
+        final EditText tipAmountText = (EditText)tippingDialog.findViewById(R.id.editText_tipAmount);
+        Button submitTipButton = (Button)tippingDialog.findViewById(R.id.button_submitTip);
+        //tippingDialog.setCancelable(false);
+        submitTipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tipAmount = 0;
+                tipAmount = Integer.parseInt(tipAmountText.getText().toString());
+                Toast.makeText(HomeActivity.this, "Tip successfully submitted!", Toast.LENGTH_SHORT).show();
+                tippingDialog.dismiss();
+                ParseObject TipObject = new ParseObject("Tips");
+                TipObject.put("orderID", userOrderIDString);
+                TipObject.put("tipAmount", tipAmount);
+                TipObject.saveInBackground();
+            }
+        });
+
+        final boolean userCompletedOrder = MyTabActivity.userFinishedOrder;
+        if(userCompletedOrder){
+            myTabOrder.clear();
+            tippingDialog.show();
+
+
+        }
+
 
         final EditText currentLocationEditText = (EditText)findViewById(R.id.editText_currentLocationName);
         assert currentLocationEditText != null;
+
+
 
         final Dialog locationDialog = new Dialog(this);
         locationDialog.setContentView(R.layout.location_select_alert);

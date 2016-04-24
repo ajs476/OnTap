@@ -16,18 +16,21 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText17"
+        android:id="@+id/editText_orderID"
         android:text="XJ33"
-        android:textSize="48dp"
+        android:textSize="28dp"
         android:textColor="#c32020"
         android:layout_below="@+id/textView7"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"
+        android:background="@android:color/transparent"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OK"
         android:id="@+id/button_okButton"
-        android:layout_below="@+id/editText17"
+        android:layout_below="@+id/editText_orderID"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
