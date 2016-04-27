@@ -245,7 +245,10 @@ public class MyTabActivity extends AppCompatActivity {
                                                 } else if (objects.get(i).getObjectId().equals(userOrderID) && objects.get(i).getInt("Status") == 2) {
                                                     orderStatusText.setText("Complete");
                                                     orderFound = true;
+                                                    orderStatusText.setText("");
                                                     tableServiceOrderCompleteDialog.show();
+                                                    mytimer.cancel();
+
                                                 }
                                             }
                                             if (!orderFound) {
@@ -360,7 +363,10 @@ public class MyTabActivity extends AppCompatActivity {
                                                 } else if (objects.get(i).getObjectId().equals(userOrderID) && objects.get(i).getInt("Status") == 2) {
                                                     orderStatusText.setText("Complete");
                                                     orderFound = true;
+                                                    orderStatusText.setText("");
                                                     orderCompleteDialog.show();
+                                                    mytimer.cancel();
+
                                                 }
                                             }
                                             if (!orderFound) {
