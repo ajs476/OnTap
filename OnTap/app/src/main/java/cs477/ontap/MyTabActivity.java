@@ -31,13 +31,18 @@ public class MyTabActivity extends AppCompatActivity {
     public int totalCost = 0;
     public CountDownTimer mytimer;
     public static String userOrderID = "";
-    public Dialog orderCompleteDialog;
+    public Dialog orderCompleteDialog, tableServiceOrderCompleteDialog;
     public static boolean userFinishedOrder = false;
+    public int userTableNumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_tab);
+
+        orderCompleteDialog = new Dialog(this);
+
+        tableServiceOrderCompleteDialog = new Dialog(this);
 
         final String userID = MainActivity.userID;
 
@@ -138,6 +143,14 @@ public class MyTabActivity extends AppCompatActivity {
         priceEditTextList.add(item11Cost);
         priceEditTextList.add(item12Cost);
 
+        final Button placeOrderButton = (Button)findViewById(R.id.button_placeOrder);
+        final Button addDrinkButton = (Button)findViewById(R.id.button_addItem);
+        assert placeOrderButton != null;
+        assert addDrinkButton != null;
+
+
+
+
         if(myTabOrder.size()>0){
             for(int i = 0; i<orderSize; i++){
                 if(myTabOrder.get(i).getDrinkQuantity()>1){
@@ -159,6 +172,224 @@ public class MyTabActivity extends AppCompatActivity {
 
         setTitle(HomeActivity.currentLocationName + ": MyTab & Order Status");
 
+
+        final Dialog tableSelectionDialog = new Dialog(this);
+        tableSelectionDialog.setContentView(R.layout.table_selection_alert);
+        tableSelectionDialog.setTitle("Table Selection");
+        tableSelectionDialog.setCancelable(false);
+        final EditText tableNumberText = (EditText)tableSelectionDialog.findViewById(R.id.editText_tableNumber);
+        Button submitTableButton = (Button)tableSelectionDialog.findViewById(R.id.button_submitTableNumber);
+        Button cancelButton = (Button)tableSelectionDialog.findViewById(R.id.button_cancelTableNumber);
+        submitTableButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tableSelectionDialog.cancel();
+                userTableNumber = Integer.parseInt(tableNumberText.getText().toString());
+
+                userFinishedOrder = false;
+
+                statusTitleText.setVisibility(View.VISIBLE);
+                orderStatusText.setVisibility(View.VISIBLE);
+                Toast.makeText(MyTabActivity.this, "Order Placed Successfully!", Toast.LENGTH_SHORT).show();
+                placeOrderButton.setVisibility(View.INVISIBLE);
+                //addDrinkButton.setVisibility(View.INVISIBLE);
+
+                ParseObject OrderObject = new ParseObject("Order");
+                String orderString = "";
+                for(int i = 0; i<myTabOrder.size(); i++){
+                    orderString += (myTabOrder.get(i).getDrinkName()+"-"+myTabOrder.get(i).getDrinkQuantity()+"-");
+                }
+                OrderObject.put("Order", orderString);
+                OrderObject.put("Status", 0);
+                OrderObject.put("Table", userTableNumber);
+                OrderObject.put("userID", userID);
+                OrderObject.saveInBackground();
+
+                ParseQuery<ParseObject> orderIDQuery = ParseQuery.getQuery("Order");
+                orderIDQuery.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        if(e == null){
+                            //Toast.makeText(MyTabActivity.this, "NO ORDERS FOUND FOR THIS USER", Toast.LENGTH_SHORT).show();
+                        }
+                        for (int i = 0; i<objects.size(); i++){
+                            if(objects.get(i).getString("userID").equals(userID) && objects.get(i).getInt("Status")==0){
+                                userOrderID = (objects.get(i).getObjectId());
+                                createTableServiceOrderCompleteDialog();
+                            }
+                        }
+                    }
+                });
+
+                //if(orderStatusText.getText().toString().equals("Processing")){
+                mytimer = new CountDownTimer(180000, 5000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+                        //here you can have your logic to set text to edittext
+
+                        if (!orderStatusText.getText().toString().equals("Complete")) {
+                            ParseQuery<ParseObject> orderQuery = ParseQuery.getQuery("Order");
+                            orderQuery.findInBackground(new FindCallback<ParseObject>() {
+                                public void done(List<ParseObject> objects, ParseException e) {
+                                    if (e == null) {
+                                        if (objects.size() == 0) {
+                                            Toast.makeText(MyTabActivity.this, "Nothing", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            //Toast.makeText(MainActivity.this, objects.get(0).getString("email"), Toast.LENGTH_SHORT).show();
+                                            boolean orderFound = false;
+                                            for (int i = 0; i < objects.size(); i++) {
+                                                if (objects.get(i).getObjectId().equals(userOrderID) && objects.get(i).getInt("Status") == 1) {
+                                                    orderStatusText.setText("Filling");
+                                                    orderFound = true;
+                                                } else if (objects.get(i).getObjectId().equals(userOrderID) && objects.get(i).getInt("Status") == 2) {
+                                                    orderStatusText.setText("Complete");
+                                                    orderFound = true;
+                                                    tableServiceOrderCompleteDialog.show();
+                                                }
+                                            }
+                                            if (!orderFound) {
+                                                Toast.makeText(MyTabActivity.this, "Did not find order", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                    } else {
+                                        //objectRetrievalFailed();
+                                        Toast.makeText(MyTabActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+
+                    }
+
+                    public void onFinish() {
+                        //Toast.makeText(MyTabActivity.this, "DONE CHECKING SERVER", Toast.LENGTH_SHORT).show();
+                    }
+
+                }.start();
+
+            }
+        });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tableSelectionDialog.cancel();
+
+            }
+        });
+
+
+
+        final Dialog tableServiceDialog = new Dialog(this);
+        tableServiceDialog.setContentView(R.layout.order_type_alert);
+        tableServiceDialog.setTitle("Order Type Selection");
+        tableServiceDialog.setCancelable(false);
+        Button yesTableServiceButton = (Button)tableServiceDialog.findViewById(R.id.button_yesTableService);
+        Button noTableServiceButton = (Button)tableServiceDialog.findViewById(R.id.button_noTableService);
+        yesTableServiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tableServiceDialog.cancel();
+                tableSelectionDialog.show();
+
+            }
+        });
+        noTableServiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                tableServiceDialog.cancel();
+
+                userFinishedOrder = false;
+
+                statusTitleText.setVisibility(View.VISIBLE);
+                orderStatusText.setVisibility(View.VISIBLE);
+                Toast.makeText(MyTabActivity.this, "Order Placed Successfully!", Toast.LENGTH_SHORT).show();
+                placeOrderButton.setVisibility(View.INVISIBLE);
+                //addDrinkButton.setVisibility(View.INVISIBLE);
+
+                ParseObject OrderObject = new ParseObject("Order");
+                String orderString = "";
+                for(int i = 0; i<myTabOrder.size(); i++){
+                    orderString += (myTabOrder.get(i).getDrinkName()+"-"+myTabOrder.get(i).getDrinkQuantity()+"-");
+                }
+                OrderObject.put("Order", orderString);
+                OrderObject.put("Status", 0);
+                OrderObject.put("Table", userTableNumber);
+                OrderObject.put("userID", userID);
+                OrderObject.saveInBackground();
+
+                ParseQuery<ParseObject> orderIDQuery = ParseQuery.getQuery("Order");
+                orderIDQuery.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        if(e == null){
+                            //Toast.makeText(MyTabActivity.this, "NO ORDERS FOUND FOR THIS USER", Toast.LENGTH_SHORT).show();
+                        }
+                        for (int i = 0; i<objects.size(); i++){
+                            if(objects.get(i).getString("userID").equals(userID) && objects.get(i).getInt("Status")==0){
+                                userOrderID = (objects.get(i).getObjectId());
+                                createOrderCompleteDialogue();
+                            }
+                        }
+                    }
+                });
+
+                //if(orderStatusText.getText().toString().equals("Processing")){
+                mytimer = new CountDownTimer(180000, 5000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+                        //here you can have your logic to set text to edittext
+
+                        if (!orderStatusText.getText().toString().equals("Complete")) {
+                            ParseQuery<ParseObject> orderQuery = ParseQuery.getQuery("Order");
+                            orderQuery.findInBackground(new FindCallback<ParseObject>() {
+                                public void done(List<ParseObject> objects, ParseException e) {
+                                    if (e == null) {
+                                        if (objects.size() == 0) {
+                                            Toast.makeText(MyTabActivity.this, "Nothing", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            //Toast.makeText(MainActivity.this, objects.get(0).getString("email"), Toast.LENGTH_SHORT).show();
+                                            boolean orderFound = false;
+                                            for (int i = 0; i < objects.size(); i++) {
+                                                if (objects.get(i).getObjectId().equals(userOrderID) && objects.get(i).getInt("Status") == 1) {
+                                                    orderStatusText.setText("Filling");
+                                                    orderFound = true;
+                                                } else if (objects.get(i).getObjectId().equals(userOrderID) && objects.get(i).getInt("Status") == 2) {
+                                                    orderStatusText.setText("Complete");
+                                                    orderFound = true;
+                                                    orderCompleteDialog.show();
+                                                }
+                                            }
+                                            if (!orderFound) {
+                                                Toast.makeText(MyTabActivity.this, "Did not find order", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                    } else {
+                                        //objectRetrievalFailed();
+                                        Toast.makeText(MyTabActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+
+                    }
+
+                    public void onFinish() {
+                        //Toast.makeText(MyTabActivity.this, "DONE CHECKING SERVER", Toast.LENGTH_SHORT).show();
+                    }
+
+                }.start();
+
+            }
+        });
+
+
+
+
         final Dialog viewMenuDialog = new Dialog(this);
         viewMenuDialog.setContentView(R.layout.drink_type_alert);
         viewMenuDialog.setTitle("Menu Selection");
@@ -175,13 +406,15 @@ public class MyTabActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         if(myTabOrder.size() == 0){
             viewMenuDialog.show();
         }
+
+
+
+
+
+
 
 
         nonAlcMenuButton.setOnClickListener(new View.OnClickListener() {
@@ -195,108 +428,25 @@ public class MyTabActivity extends AppCompatActivity {
         });
 
 
-        final Button placeOrderButton = (Button)findViewById(R.id.button_placeOrder);
-        final Button addDrinkButton = (Button)findViewById(R.id.button_addItem);
-        assert placeOrderButton != null;
-        assert addDrinkButton != null;
 
 
-        final Thread closeActivity = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(3000);
 
-                } catch (Exception e) {
-                    e.getLocalizedMessage();
-                }
-            }
-        });
+//        final Thread closeActivity = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(3000);
+//
+//                } catch (Exception e) {
+//                    e.getLocalizedMessage();
+//                }
+//            }
+//        });
 
         placeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userFinishedOrder = false;
-                statusTitleText.setVisibility(View.VISIBLE);
-                orderStatusText.setVisibility(View.VISIBLE);
-                Toast.makeText(MyTabActivity.this, "Order Placed Successfully!", Toast.LENGTH_SHORT).show();
-                placeOrderButton.setVisibility(View.INVISIBLE);
-                //addDrinkButton.setVisibility(View.INVISIBLE);
-
-                ParseObject OrderObject = new ParseObject("Order");
-                String orderString = "";
-                for(int i = 0; i<myTabOrder.size(); i++){
-                    orderString += (myTabOrder.get(i).getDrinkName()+"-"+myTabOrder.get(i).getDrinkQuantity()+"-");
-                }
-                OrderObject.put("Order", orderString);
-                OrderObject.put("Status", 0);
-                OrderObject.put("Table", 0);
-                OrderObject.put("userID", userID);
-                OrderObject.saveInBackground();
-
-                ParseQuery<ParseObject> orderIDQuery = ParseQuery.getQuery("Order");
-                orderIDQuery.findInBackground(new FindCallback<ParseObject>() {
-                                                  @Override
-                                                  public void done(List<ParseObject> objects, ParseException e) {
-                                                      if(e == null){
-                                                          Toast.makeText(MyTabActivity.this, "NO ORDERS FOUND FOR THIS USER", Toast.LENGTH_SHORT).show();
-                                                      }
-                                                      for (int i = 0; i<objects.size(); i++){
-                                                          if(objects.get(i).getString("userID").equals(userID) && objects.get(i).getInt("Status")==0){
-                                                              userOrderID = (objects.get(i).getObjectId());
-                                                              createOrderCompleteDialogue();
-                                                          }
-                                                      }
-                                                  }
-                                              });
-
-                        //if(orderStatusText.getText().toString().equals("Processing")){
-                        mytimer = new CountDownTimer(180000, 5000) {
-
-                            public void onTick(long millisUntilFinished) {
-                                //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
-                                //here you can have your logic to set text to edittext
-
-                                if (!orderStatusText.getText().toString().equals("Complete")) {
-                                    ParseQuery<ParseObject> orderQuery = ParseQuery.getQuery("Order");
-                                    orderQuery.findInBackground(new FindCallback<ParseObject>() {
-                                        public void done(List<ParseObject> objects, ParseException e) {
-                                            if (e == null) {
-                                                if (objects.size() == 0) {
-                                                    Toast.makeText(MyTabActivity.this, "Nothing", Toast.LENGTH_SHORT).show();
-                                                } else {
-                                                    //Toast.makeText(MainActivity.this, objects.get(0).getString("email"), Toast.LENGTH_SHORT).show();
-                                                    boolean orderFound = false;
-                                                    for (int i = 0; i < objects.size(); i++) {
-                                                        if (objects.get(i).getObjectId().equals(userOrderID) && objects.get(i).getInt("Status") == 1) {
-                                                            orderStatusText.setText("Filling");
-                                                            orderFound = true;
-                                                        } else if (objects.get(i).getObjectId().equals(userOrderID) && objects.get(i).getInt("Status") == 2) {
-                                                            orderStatusText.setText("Complete");
-                                                            orderFound = true;
-                                                            orderCompleteDialog.show();
-                                                        }
-                                                    }
-                                                    if (!orderFound) {
-                                                        Toast.makeText(MyTabActivity.this, "Did not find order", Toast.LENGTH_SHORT).show();
-                                                    }
-                                                }
-
-                                            } else {
-                                                //objectRetrievalFailed();
-                                                Toast.makeText(MyTabActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                    });
-                                }
-
-                            }
-
-                            public void onFinish() {
-                                //Toast.makeText(MyTabActivity.this, "DONE CHECKING SERVER", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }.start();
+                tableServiceDialog.show();
                 }
 
 
@@ -315,8 +465,10 @@ public class MyTabActivity extends AppCompatActivity {
 
     }
 
+
+
     public void createOrderCompleteDialogue(){
-        orderCompleteDialog = new Dialog(this);
+
         orderCompleteDialog.setContentView(R.layout.order_complete_alert);
         orderCompleteDialog.setTitle("Order Ready For Pickup!");
         EditText orderIDText = (EditText)orderCompleteDialog.findViewById(R.id.editText_orderID);
@@ -333,6 +485,24 @@ public class MyTabActivity extends AppCompatActivity {
                 //Toast.makeText(MyTabActivity.this, "Open alc menu", Toast.LENGTH_SHORT).show();
 //                Intent toAlcMenu = new Intent(MyTabActivity.this, AlcoholicMenuActivity.class);
 //                startActivity(toAlcMenu);
+            }
+        });
+    }
+
+    public void createTableServiceOrderCompleteDialog(){
+
+        tableServiceOrderCompleteDialog.setContentView(R.layout.order_on_its_way_alert);
+        tableServiceOrderCompleteDialog.setTitle("Order On Its Way!");
+        tableServiceOrderCompleteDialog.setCancelable(false);
+        Button okOrderOnItsWayButton = (Button)tableServiceOrderCompleteDialog.findViewById(R.id.button_okOrderOnItsWay);
+        okOrderOnItsWayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tableServiceOrderCompleteDialog.cancel();
+                userFinishedOrder = true;
+                Intent myIntent = new Intent(MyTabActivity.this, HomeActivity.class);
+                startActivity(myIntent);
+
             }
         });
     }
