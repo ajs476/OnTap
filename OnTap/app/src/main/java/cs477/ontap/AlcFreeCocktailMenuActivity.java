@@ -93,7 +93,7 @@ public class AlcFreeCocktailMenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(AlcFreeCocktailMenuActivity.this, "Added to order", Toast.LENGTH_SHORT).show();
                 List<drinkObject> myTabOrder = HomeActivity.myTabOrder;
-                drinkObject newDrink = new drinkObject(drinkNameText.getText().toString(),"Y","Beer",newPrice);
+                drinkObject newDrink = new drinkObject(drinkNameText.getText().toString(),"Y","Beer",alcFreeCocktailMenu.get(itemPosition).getDrinkPrice());
                 newDrink.setDrinkQuantity(qty);
                 myTabOrder.add(newDrink);
                 Intent myIntent = new Intent(AlcFreeCocktailMenuActivity.this, MyTabActivity.class);

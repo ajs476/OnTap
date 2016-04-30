@@ -40,6 +40,7 @@ public class MyTabActivity extends AppCompatActivity {
     public String itemEditingName;
     public int itemEditingLocation;
     public List<drinkObject> myTabOrder;
+    public int itemAmount,itemPrice,totalPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,6 +171,8 @@ public class MyTabActivity extends AppCompatActivity {
 
         if(myTabOrder.size()>0){
             for(int i = 0; i<orderSize; i++){
+                int drinkPrice = myTabOrder.get(i).getDrinkPrice();
+                int drinkQty = myTabOrder.get(i).getDrinkQuantity();
                 if(myTabOrder.get(i).getDrinkQuantity()>1){
                     editTextList.get(i).setText(myTabOrder.get(i).getDrinkName()+"      Qty: "+Integer.toString(myTabOrder.get(i).getDrinkQuantity()));
                 }
@@ -177,10 +180,10 @@ public class MyTabActivity extends AppCompatActivity {
                     editTextList.get(i).setText(myTabOrder.get(i).getDrinkName());
                 }
 
-                totalCost += myTabOrder.get(i).getDrinkPrice();
+                totalCost += drinkPrice*drinkQty;
 
                 //amountEditTextList.get(i).setText(Integer.toString(myTabOrder.get(i).getDrinkQuantity()));
-                priceEditTextList.get(i).setText(Integer.toString(myTabOrder.get(i).getDrinkPrice()));
+                priceEditTextList.get(i).setText(Integer.toString(drinkPrice*drinkQty));
             }
             orderTotalCostText.setText("$ "+ Integer.toString(totalCost));
         }
@@ -644,13 +647,72 @@ public class MyTabActivity extends AppCompatActivity {
     public void createEditItemDialog(){
         editOrDeleteDialog.setContentView(R.layout.remove_or_edit_alert);
         editOrDeleteDialog.setTitle("Edit or Delete "+itemEditingName);
-        Button editItemButton = (Button)editOrDeleteDialog.findViewById(R.id.button_editItem);
+        final Button editItemButton = (Button)editOrDeleteDialog.findViewById(R.id.button_editItem);
         Button removeItemButton = (Button)editOrDeleteDialog.findViewById(R.id.button_deleteItem);
         Button cancelEditRemoveButton = (Button)editOrDeleteDialog.findViewById(R.id.button_cancelEditDelete);
         editItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MyTabActivity.this, "EDIT ITEM "+itemEditingName, Toast.LENGTH_SHORT).show();
+                // create edit item dialog based on add item dialog
+                final Dialog editItemDialog = new Dialog(MyTabActivity.this);
+                itemAmount = myTabOrder.get(itemEditingLocation).getDrinkQuantity();
+                itemPrice = myTabOrder.get(itemEditingLocation).getDrinkPrice();
+                totalPrice = itemPrice*itemAmount;
+                editItemDialog.setContentView(R.layout.drink_add_alert);
+                editItemDialog.setTitle("Edit item: " +itemEditingName);
+                EditText drinkName = (EditText)editItemDialog.findViewById(R.id.editText_drinkAddName);
+                drinkName.setText(itemEditingName);
+                final EditText itemAmountText = (EditText)editItemDialog.findViewById(R.id.editText_drinkQty);
+                itemAmountText.setText(Integer.toString(itemAmount));
+                final EditText itemTotalPriceText = (EditText)editItemDialog.findViewById(R.id.editText_totalCost);
+                itemTotalPriceText.setText(Integer.toString(totalPrice));
+                Button increaseQtyButton = (Button)editItemDialog.findViewById(R.id.button_increaseQty);
+                increaseQtyButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        itemAmount ++;
+                        totalPrice = itemAmount*itemPrice;
+                        itemAmountText.setText(Integer.toString(itemAmount));
+                        itemTotalPriceText.setText(Integer.toString(totalPrice));
+
+                    }
+                });
+                Button decreaseQtyButton = (Button)editItemDialog.findViewById(R.id.button_decreaseQty);
+                decreaseQtyButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(itemAmount >= 2){
+                            itemAmount --;
+                            totalPrice = itemAmount*itemPrice;
+                            itemAmountText.setText(Integer.toString(itemAmount));
+                            itemTotalPriceText.setText(Integer.toString(totalPrice));
+                        }
+                        else{
+                            Toast.makeText(MyTabActivity.this, "Cannot decrease anymore.", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+                Button updateEditedItem = (Button)editItemDialog.findViewById(R.id.button_addDrink);
+                updateEditedItem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MyTabActivity.this, "Item updated successfully!", Toast.LENGTH_SHORT).show();
+                        myTabOrder.get(itemEditingLocation).setDrinkQuantity(itemAmount);
+                        Intent myIntent = new Intent(MyTabActivity.this, MyTabActivity.class);
+                        startActivity(myIntent);
+                    }
+                });
+                Button cancelEditItem = (Button)editItemDialog.findViewById(R.id.button_cancelAdd);
+                cancelEditItem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        editItemDialog.dismiss();
+                    }
+                });
+                editItemDialog.show();
+
+
             }
         });
         removeItemButton.setOnClickListener(new View.OnClickListener() {
