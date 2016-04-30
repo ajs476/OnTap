@@ -96,7 +96,8 @@
         android:gravity="right"
         android:layout_alignBottom="@+id/editText_tabItem2"
         android:layout_alignRight="@+id/editText_tabCost1"
-        android:layout_alignEnd="@+id/editText_tabCost1" />
+        android:layout_alignEnd="@+id/editText_tabCost1"
+        android:text=""  />
 
     <EditText
         android:background="@android:color/transparent"
@@ -131,7 +132,8 @@
         android:gravity="right"
         android:layout_above="@+id/editText_tabCost5"
         android:layout_alignRight="@+id/editText_tabCost5"
-        android:layout_alignEnd="@+id/editText_tabCost5" />
+        android:layout_alignEnd="@+id/editText_tabCost5"
+        android:text=""/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -269,14 +271,6 @@
         android:layout_alignRight="@+id/editText_tabItem11"
         android:layout_alignEnd="@+id/editText_tabItem11" />
 
-
-
-
-
-
-
-
-
     <EditText
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
@@ -285,7 +279,8 @@
         android:gravity="right"
         android:layout_above="@+id/editText_tabCost9"
         android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11" />
+        android:layout_alignEnd="@+id/textView11"
+        android:text=""/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -295,7 +290,8 @@
         android:gravity="right"
         android:layout_above="@+id/editText_tabCost10"
         android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11" />
+        android:layout_alignEnd="@+id/textView11"
+        android:text=""/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -305,7 +301,8 @@
         android:gravity="right"
         android:layout_above="@+id/editText_tabCost11"
         android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11" />
+        android:layout_alignEnd="@+id/textView11"
+        android:text=""/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -315,7 +312,8 @@
         android:gravity="right"
         android:layout_above="@+id/editText_tabCost12"
         android:layout_alignRight="@+id/editText_tabCost12"
-        android:layout_alignEnd="@+id/editText_tabCost12" />
+        android:layout_alignEnd="@+id/editText_tabCost12"
+        android:text=""/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -325,7 +323,8 @@
         android:gravity="right"
         android:layout_above="@+id/textView_statusTitle"
         android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11" />
+        android:layout_alignEnd="@+id/textView11"
+        android:text=""/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -335,7 +334,8 @@
         android:gravity="right"
         android:layout_above="@+id/editText_tabCost8"
         android:layout_alignRight="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11" />
+        android:layout_alignEnd="@+id/textView11"
+        android:text=""/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -345,7 +345,8 @@
         android:gravity="right"
         android:layout_above="@+id/editText_tabCost7"
         android:layout_alignRight="@+id/textView8"
-        android:layout_alignEnd="@+id/textView8" />
+        android:layout_alignEnd="@+id/textView8"
+        android:text=""/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -355,7 +356,8 @@
         android:gravity="right"
         android:layout_below="@+id/editText_tabItem4"
         android:layout_alignRight="@+id/textView8"
-        android:layout_alignEnd="@+id/textView8" />
+        android:layout_alignEnd="@+id/textView8"
+        android:text=""/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -365,6 +367,126 @@
         android:gravity="right"
         android:layout_above="@+id/editText_tabCost4"
         android:layout_alignRight="@+id/editText_tabCost1"
-        android:layout_alignEnd="@+id/editText_tabCost1" />
+        android:layout_alignEnd="@+id/editText_tabCost1"
+        android:text=""/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem1"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/editText_tabCost2"
+        android:layout_alignLeft="@+id/imageView_xItem2"
+        android:layout_alignStart="@+id/imageView_xItem2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem2"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/editText_tabCost3"
+        android:layout_toRightOf="@+id/editText_tabCost2"
+        android:layout_toEndOf="@+id/editText_tabCost2"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem3"
+        android:background="@drawable/x_logo"
+        android:layout_alignBottom="@+id/editText_tabCost3"
+        android:layout_toRightOf="@+id/editText_tabCost1"
+        android:layout_toEndOf="@+id/editText_tabCost1"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem4"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/editText_tabCost5"
+        android:layout_toRightOf="@+id/editText_tabCost1"
+        android:layout_toEndOf="@+id/editText_tabCost1"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem5"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/editText_tabCost6"
+        android:layout_toRightOf="@+id/editText_tabCost1"
+        android:layout_toEndOf="@+id/editText_tabCost1"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem6"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/editText_tabCost7"
+        android:layout_toRightOf="@+id/editText_tabCost4"
+        android:layout_toEndOf="@+id/editText_tabCost4"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem7"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/editText_tabCost8"
+        android:layout_toRightOf="@+id/editText_tabCost8"
+        android:layout_toEndOf="@+id/editText_tabCost8"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem8"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/editText_tabCost9"
+        android:layout_toRightOf="@+id/editText_tabCost8"
+        android:layout_toEndOf="@+id/editText_tabCost8"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem9"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/editText_tabCost10"
+        android:layout_toRightOf="@+id/editText_tabCost8"
+        android:layout_toEndOf="@+id/editText_tabCost8"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem10"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/editText_tabCost11"
+        android:layout_toRightOf="@+id/textView_orderTotalCost"
+        android:layout_toEndOf="@+id/textView_orderTotalCost"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem11"
+        android:background="@drawable/x_logo"
+        android:layout_alignBottom="@+id/editText_tabCost11"
+        android:layout_toRightOf="@+id/textView_orderTotalCost"
+        android:layout_toEndOf="@+id/textView_orderTotalCost"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_xItem12"
+        android:background="@drawable/x_logo"
+        android:layout_above="@+id/textView_statusTitle"
+        android:layout_toRightOf="@+id/textView_orderTotalCost"
+        android:layout_toEndOf="@+id/textView_orderTotalCost"
+        android:layout_marginLeft="10dp" />
 
 </RelativeLayout>
