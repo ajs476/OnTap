@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,40 +33,11 @@ public class MyTabActivity extends AppCompatActivity {
     public static String userOrderID = "";
     public Dialog orderCompleteDialog;
     public static boolean userFinishedOrder = false;
-    public ImageView xItem1,xItem2,xItem3,xItem4,xItem5,xItem6,xItem7,xItem8,xItem9,xItem10,xItem11,xItem12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_tab);
-
-        // initialize x images
-        xItem1 = (ImageView)findViewById(R.id.imageView_xItem1);
-        xItem2 = (ImageView)findViewById(R.id.imageView_xItem2);
-        xItem3 = (ImageView)findViewById(R.id.imageView_xItem3);
-        xItem4 = (ImageView)findViewById(R.id.imageView_xItem4);
-        xItem5 = (ImageView)findViewById(R.id.imageView_xItem5);
-        xItem6 = (ImageView)findViewById(R.id.imageView_xItem6);
-        xItem7 = (ImageView)findViewById(R.id.imageView_xItem7);
-        xItem8 = (ImageView)findViewById(R.id.imageView_xItem8);
-        xItem9 = (ImageView)findViewById(R.id.imageView_xItem9);
-        xItem10 = (ImageView)findViewById(R.id.imageView_xItem10);
-        xItem11 = (ImageView)findViewById(R.id.imageView_xItem11);
-        xItem12 = (ImageView)findViewById(R.id.imageView_xItem12);
-
-        // initialize x images to be invisible initially
-        xItem2.setVisibility(View.INVISIBLE);
-        xItem3.setVisibility(View.INVISIBLE);
-        xItem4.setVisibility(View.INVISIBLE);
-        xItem5.setVisibility(View.INVISIBLE);
-        xItem6.setVisibility(View.INVISIBLE);
-        xItem7.setVisibility(View.INVISIBLE);
-        xItem8.setVisibility(View.INVISIBLE);
-        xItem9.setVisibility(View.INVISIBLE);
-        xItem10.setVisibility(View.INVISIBLE);
-        xItem11.setVisibility(View.INVISIBLE);
-        xItem12.setVisibility(View.INVISIBLE);
-
 
         final String userID = MainActivity.userID;
 
@@ -183,41 +153,6 @@ public class MyTabActivity extends AppCompatActivity {
                 priceEditTextList.get(i).setText(Integer.toString(myTabOrder.get(i).getDrinkPrice()));
             }
             orderTotalCostText.setText("$ "+ Integer.toString(totalCost));
-        }
-
-        // check if there are items that need to be edited, display X
-        if(!item2Name.getText().toString().equals("")){
-            xItem2.setVisibility(View.VISIBLE);
-        }
-        if(!item3Name.getText().toString().equals("")){
-            xItem3.setVisibility(View.VISIBLE);
-        }
-        if(!item4Name.getText().toString().equals("")){
-            xItem4.setVisibility(View.VISIBLE);
-        }
-        if(!item5Name.getText().toString().equals("")){
-            xItem5.setVisibility(View.VISIBLE);
-        }
-        if(!item6Name.getText().toString().equals("")){
-            xItem6.setVisibility(View.VISIBLE);
-        }
-        if(!item7Name.getText().toString().equals("")){
-            xItem7.setVisibility(View.VISIBLE);
-        }
-        if(!item8Name.getText().toString().equals("")){
-            xItem8.setVisibility(View.VISIBLE);
-        }
-        if(!item9Name.getText().toString().equals("")){
-            xItem9.setVisibility(View.VISIBLE);
-        }
-        if(!item10Name.getText().toString().equals("")){
-            xItem10.setVisibility(View.VISIBLE);
-        }
-        if(!item11Name.getText().toString().equals("")){
-            xItem11.setVisibility(View.VISIBLE);
-        }
-        if(!item12Name.getText().toString().equals("")){
-            xItem12.setVisibility(View.VISIBLE);
         }
 
 
