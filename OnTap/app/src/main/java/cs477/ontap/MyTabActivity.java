@@ -32,16 +32,20 @@ public class MyTabActivity extends AppCompatActivity {
     public int totalCost = 0;
     public CountDownTimer mytimer;
     public static String userOrderID = "";
-    public Dialog orderCompleteDialog, tableServiceOrderCompleteDialog;
+    public Dialog orderCompleteDialog, tableServiceOrderCompleteDialog, editOrDeleteDialog;
     public static boolean userFinishedOrder = false;
     public int userTableNumber = 0;
     public TextView orderStatusText;
     public ImageView xItem1,xItem2,xItem3,xItem4,xItem5,xItem6,xItem7,xItem8,xItem9,xItem10,xItem11,xItem12;
+    public String itemEditingName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_tab);
+
+        final List<drinkObject> myTabOrder = HomeActivity.myTabOrder;
+
 
 
         // initialize x images
@@ -72,12 +76,16 @@ public class MyTabActivity extends AppCompatActivity {
         xItem12.setVisibility(View.INVISIBLE);
 
         orderCompleteDialog = new Dialog(this);
-
+        editOrDeleteDialog = new Dialog(this);
         tableServiceOrderCompleteDialog = new Dialog(this);
+
+
+
+
 
         final String userID = MainActivity.userID;
 
-        final List<drinkObject> myTabOrder = HomeActivity.myTabOrder;
+
         final int orderSize = myTabOrder.size();
 
         final TextView statusTitleText = (TextView)findViewById(R.id.textView_statusTitle);
@@ -175,39 +183,154 @@ public class MyTabActivity extends AppCompatActivity {
             orderTotalCostText.setText("$ "+ Integer.toString(totalCost));
         }
 
+
+
         // check if there are items that need to be edited, display X
+
+        if(!item1Name.getText().toString().equals("")){
+            xItem1.setVisibility(View.VISIBLE);
+            xItem1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(0).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+
+            });
+        }
         if(!item2Name.getText().toString().equals("")){
             xItem2.setVisibility(View.VISIBLE);
+            xItem2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(1).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item3Name.getText().toString().equals("")){
             xItem3.setVisibility(View.VISIBLE);
+            xItem3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(2).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item4Name.getText().toString().equals("")){
             xItem4.setVisibility(View.VISIBLE);
+            xItem4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(3).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item5Name.getText().toString().equals("")){
             xItem5.setVisibility(View.VISIBLE);
+            xItem5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(4).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item6Name.getText().toString().equals("")){
             xItem6.setVisibility(View.VISIBLE);
+            xItem6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(5).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item7Name.getText().toString().equals("")){
             xItem7.setVisibility(View.VISIBLE);
+            xItem7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(6).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item8Name.getText().toString().equals("")){
             xItem8.setVisibility(View.VISIBLE);
+            xItem8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(7).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item9Name.getText().toString().equals("")){
             xItem9.setVisibility(View.VISIBLE);
+            xItem9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(8).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item10Name.getText().toString().equals("")){
             xItem10.setVisibility(View.VISIBLE);
+            xItem10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(9).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item11Name.getText().toString().equals("")){
             xItem11.setVisibility(View.VISIBLE);
+            xItem11.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(10).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
         if(!item12Name.getText().toString().equals("")){
             xItem12.setVisibility(View.VISIBLE);
+            xItem12.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
+                    itemEditingName = myTabOrder.get(11).getDrinkName();
+                    createEditItemDialog();
+                    editOrDeleteDialog.show();
+                }
+            });
         }
 
 
@@ -504,6 +627,31 @@ public class MyTabActivity extends AppCompatActivity {
 
     }
 
+    public void createEditItemDialog(){
+        editOrDeleteDialog.setContentView(R.layout.remove_or_edit_alert);
+        editOrDeleteDialog.setTitle("Edit or Delete "+itemEditingName);
+        Button editItemButton = (Button)editOrDeleteDialog.findViewById(R.id.button_editItem);
+        Button removeItemButton = (Button)editOrDeleteDialog.findViewById(R.id.button_deleteItem);
+        Button cancelEditRemoveButton = (Button)editOrDeleteDialog.findViewById(R.id.button_cancelEditDelete);
+        editItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MyTabActivity.this, "EDIT ITEM "+itemEditingName, Toast.LENGTH_SHORT).show();
+            }
+        });
+        removeItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MyTabActivity.this, "DELETE THIS ITEM FROM ORDER", Toast.LENGTH_SHORT).show();
+            }
+        });
+        cancelEditRemoveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editOrDeleteDialog.dismiss();
+            }
+        });
+    }
 
 
     public void createOrderCompleteDialogue(){

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Item"
+        android:id="@+id/button_editItem"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/button_deleteItem"
+        android:layout_alignStart="@+id/button_deleteItem"
+        android:layout_alignRight="@+id/button_deleteItem"
+        android:layout_alignEnd="@+id/button_deleteItem" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Item"
+        android:id="@+id/button_deleteItem"
+        android:layout_below="@+id/button_editItem"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/button_cancelEditDelete"
+        android:layout_below="@+id/button_deleteItem"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
