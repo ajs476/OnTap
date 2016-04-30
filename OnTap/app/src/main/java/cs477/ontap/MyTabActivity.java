@@ -38,13 +38,15 @@ public class MyTabActivity extends AppCompatActivity {
     public TextView orderStatusText;
     public ImageView xItem1,xItem2,xItem3,xItem4,xItem5,xItem6,xItem7,xItem8,xItem9,xItem10,xItem11,xItem12;
     public String itemEditingName;
+    public int itemEditingLocation;
+    public List<drinkObject> myTabOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_tab);
 
-        final List<drinkObject> myTabOrder = HomeActivity.myTabOrder;
+        myTabOrder = HomeActivity.myTabOrder;
 
 
 
@@ -194,6 +196,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(0).getDrinkName();
+                    itemEditingLocation = 0;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -207,6 +210,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(1).getDrinkName();
+                    itemEditingLocation = 1;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -219,6 +223,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(2).getDrinkName();
+                    itemEditingLocation = 2;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -231,6 +236,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(3).getDrinkName();
+                    itemEditingLocation = 3;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -243,6 +249,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(4).getDrinkName();
+                    itemEditingLocation = 4;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -255,6 +262,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(5).getDrinkName();
+                    itemEditingLocation = 5;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -267,6 +275,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(6).getDrinkName();
+                    itemEditingLocation = 6;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -279,6 +288,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(7).getDrinkName();
+                    itemEditingLocation = 7;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -291,6 +301,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(8).getDrinkName();
+                    itemEditingLocation = 8;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -303,6 +314,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(9).getDrinkName();
+                    itemEditingLocation = 9;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -315,6 +327,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(10).getDrinkName();
+                    itemEditingLocation = 10;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -327,6 +340,7 @@ public class MyTabActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //Toast.makeText(MyTabActivity.this, "EDIT OR REMOVE DIALOG", Toast.LENGTH_SHORT).show();
                     itemEditingName = myTabOrder.get(11).getDrinkName();
+                    itemEditingLocation = 11;
                     createEditItemDialog();
                     editOrDeleteDialog.show();
                 }
@@ -642,7 +656,11 @@ public class MyTabActivity extends AppCompatActivity {
         removeItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MyTabActivity.this, "DELETE THIS ITEM FROM ORDER", Toast.LENGTH_SHORT).show();
+                myTabOrder.remove(itemEditingLocation);
+                Intent myIntent = new Intent(MyTabActivity.this, MyTabActivity.class);
+                startActivity(myIntent);
+                //Toast.makeText(MyTabActivity.this, "DELETE THIS ITEM FROM ORDER", Toast.LENGTH_SHORT).show();
+
             }
         });
         cancelEditRemoveButton.setOnClickListener(new View.OnClickListener() {
