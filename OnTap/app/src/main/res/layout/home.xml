@@ -46,4 +46,12 @@
         android:layout_alignEnd="@+id/textView15"
         android:gravity="center_horizontal" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Location"
+        android:id="@+id/button_changeLocation"
+        android:layout_below="@+id/editText_currentLocationName"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

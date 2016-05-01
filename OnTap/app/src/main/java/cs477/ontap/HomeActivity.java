@@ -2,8 +2,10 @@ package cs477.ontap;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ParseException;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
@@ -26,7 +28,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
  */
 public class HomeActivity extends AppCompatActivity {
 
-    public static String currentLocationName;
+    public String currentLocationName;
     public static String currentLocationMenu;
 
     public static List<drinkObject> beerMenu;
@@ -38,11 +40,21 @@ public class HomeActivity extends AppCompatActivity {
 
     public static List<drinkObject> myTabOrder = new ArrayList<drinkObject>();
 
+    public SharedPreferences preferences;
+    public SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = preferences.edit();
+
+
+
+
 
         final String userOrderIDString = MyTabActivity.userOrderID;
 
@@ -76,7 +88,15 @@ public class HomeActivity extends AppCompatActivity {
 
 
         final EditText currentLocationEditText = (EditText)findViewById(R.id.editText_currentLocationName);
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String locationName = preferences.getString("CurrentLocationName", "NONE");
         assert currentLocationEditText != null;
+        if(locationName.equals("NONE")){
+            currentLocationEditText.setText("None");
+        }
+        else{
+            currentLocationEditText.setText(locationName);
+        }
 
 
 
@@ -99,6 +119,8 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 final String locationCodeString = locationCodeText.getText().toString();
+                editor.putString("CurrentLocationCode", locationCodeString);
+                editor.apply();
 
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Menu");
                 query.findInBackground(new FindCallback<ParseObject>() {
@@ -110,15 +132,17 @@ public class HomeActivity extends AppCompatActivity {
 
                                 boolean locationFound = false;
                                 for (int i = 0; i < menus.size(); i++) {
-                                    if (menus.get(i).getString("locID").equals(locationCodeString)) {
+                                    if (menus.get(i).getString("locID").equals(preferences.getString("CurrentLocationCode","NONE"))) {
                                         //Toast.makeText(MainActivity.this, userID, Toast.LENGTH_SHORT).show();
                                         Toast.makeText(HomeActivity.this, "Location Match!", Toast.LENGTH_SHORT).show();
                                         currentLocationName = menus.get(i).getString("locName");
                                         currentLocationMenu = menus.get(i).getString("menu");
 
 
-                                        Toast.makeText(HomeActivity.this, currentLocationMenu, Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(HomeActivity.this, currentLocationMenu, Toast.LENGTH_SHORT).show();
                                         currentLocationEditText.setText(currentLocationName);
+                                        editor.putString("CurrentLocationName",currentLocationName);
+                                        editor.apply();
                                         locationFound = true;
 
                                         Intent myIntent = new Intent(HomeActivity.this, MyTabActivity.class);
@@ -126,69 +150,72 @@ public class HomeActivity extends AppCompatActivity {
                                     }
                                 }
 
+                                if(locationFound){
+                                    //String currentLocationMenuRaw = HomeActivity.currentLocationMenu;
+                                    String[] splitMenu = currentLocationMenu.split("-");
 
-                                //String currentLocationMenuRaw = HomeActivity.currentLocationMenu;
-                                String[] splitMenu = currentLocationMenu.split("-");
-
-                                List<drinkObject> entireDrinkMenu = new ArrayList<drinkObject>();
-                                beerMenu = new ArrayList<drinkObject>();
-                                wineMenu = new ArrayList<drinkObject>();
-                                cocktailMenu = new ArrayList<drinkObject>();
-                                softDrinkMenu = new ArrayList<drinkObject>();
-                                alcFreeCocktailMenu = new ArrayList<drinkObject>();
-                                otherDrinkMenu = new ArrayList<drinkObject>();
-
-
-                                //String[] values = new String[] {"","","","","","","","","","","","","","","","","","","","","","",""};
-
-                                //Toast.makeText(BeersMenuActivity.this, splitMenu[0], Toast.LENGTH_SHORT).show();
-                                int k = 0;
-                                for (int j = 0; j < (splitMenu.length); j += 4) {
+                                    List<drinkObject> entireDrinkMenu = new ArrayList<drinkObject>();
+                                    beerMenu = new ArrayList<drinkObject>();
+                                    wineMenu = new ArrayList<drinkObject>();
+                                    cocktailMenu = new ArrayList<drinkObject>();
+                                    softDrinkMenu = new ArrayList<drinkObject>();
+                                    alcFreeCocktailMenu = new ArrayList<drinkObject>();
+                                    otherDrinkMenu = new ArrayList<drinkObject>();
 
 
-                                    String drinkName = splitMenu[j];
-                                    //Toast.makeText(HomeActivity.this, drinkName, Toast.LENGTH_SHORT).show();
-                                    String drinkAlcohol = splitMenu[j + 1];
-                                    //Toast.makeText(HomeActivity.this, drinkAlcohol, Toast.LENGTH_SHORT).show();
-                                    String drinkType = splitMenu[j + 2];
-                                    //Toast.makeText(HomeActivity.this, drinkType, Toast.LENGTH_SHORT).show();
-                                    String drinkPrice = splitMenu[j + 3];
-                                    //Toast.makeText(HomeActivity.this, drinkPrice, Toast.LENGTH_SHORT).show();
-                                    //values[k] = drinkName;
-                                    //k++;
+                                    //String[] values = new String[] {"","","","","","","","","","","","","","","","","","","","","","",""};
 
-                                    // create entire list of all drink objects
-                                    drinkObject newDrink = new drinkObject(drinkName, drinkAlcohol, drinkType, Integer.parseInt(drinkPrice));
-                                    entireDrinkMenu.add(newDrink);
+                                    //Toast.makeText(BeersMenuActivity.this, splitMenu[0], Toast.LENGTH_SHORT).show();
+                                    int k = 0;
+                                    for (int j = 0; j < (splitMenu.length); j += 4) {
 
 
-                                }
+                                        String drinkName = splitMenu[j];
+                                        //Toast.makeText(HomeActivity.this, drinkName, Toast.LENGTH_SHORT).show();
+                                        String drinkAlcohol = splitMenu[j + 1];
+                                        //Toast.makeText(HomeActivity.this, drinkAlcohol, Toast.LENGTH_SHORT).show();
+                                        String drinkType = splitMenu[j + 2];
+                                        //Toast.makeText(HomeActivity.this, drinkType, Toast.LENGTH_SHORT).show();
+                                        String drinkPrice = splitMenu[j + 3];
+                                        //Toast.makeText(HomeActivity.this, drinkPrice, Toast.LENGTH_SHORT).show();
+                                        //values[k] = drinkName;
+                                        //k++;
 
-                                // loop through entire drink list and group drink types in their respective menu-lists
-                                for (int x = 0; x < entireDrinkMenu.size(); x++) {
-                                    if (entireDrinkMenu.get(x).getDrinkType().equals("Beer")) {
-                                        beerMenu.add(entireDrinkMenu.get(x));
+                                        // create entire list of all drink objects
+                                        drinkObject newDrink = new drinkObject(drinkName, drinkAlcohol, drinkType, Integer.parseInt(drinkPrice));
+                                        entireDrinkMenu.add(newDrink);
+
+
                                     }
-                                    if (entireDrinkMenu.get(x).getDrinkType().equals("Wine")) {
-                                        wineMenu.add(entireDrinkMenu.get(x));
-                                    }
-                                    if (entireDrinkMenu.get(x).getDrinkType().equals("Cocktail")) {
-                                        cocktailMenu.add(entireDrinkMenu.get(x));
-                                    }
-                                    if(entireDrinkMenu.get(x).getDrinkType().equals("Soft Drink")){
-                                        softDrinkMenu.add(entireDrinkMenu.get(x));
-                                    }
-                                    if(entireDrinkMenu.get(x).getDrinkType().equals("AlcFreeCocktail")){
-                                        alcFreeCocktailMenu.add(entireDrinkMenu.get(x));
-                                    }
-                                    if(entireDrinkMenu.get(x).getDrinkType().equals("Other")){
-                                        otherDrinkMenu.add(entireDrinkMenu.get(x));
+
+                                    // loop through entire drink list and group drink types in their respective menu-lists
+                                    for (int x = 0; x < entireDrinkMenu.size(); x++) {
+                                        if (entireDrinkMenu.get(x).getDrinkType().equals("Beer")) {
+                                            beerMenu.add(entireDrinkMenu.get(x));
+                                        }
+                                        if (entireDrinkMenu.get(x).getDrinkType().equals("Wine")) {
+                                            wineMenu.add(entireDrinkMenu.get(x));
+                                        }
+                                        if (entireDrinkMenu.get(x).getDrinkType().equals("Cocktail")) {
+                                            cocktailMenu.add(entireDrinkMenu.get(x));
+                                        }
+                                        if(entireDrinkMenu.get(x).getDrinkType().equals("Soft Drink")){
+                                            softDrinkMenu.add(entireDrinkMenu.get(x));
+                                        }
+                                        if(entireDrinkMenu.get(x).getDrinkType().equals("AlcFreeCocktail")){
+                                            alcFreeCocktailMenu.add(entireDrinkMenu.get(x));
+                                        }
+                                        if(entireDrinkMenu.get(x).getDrinkType().equals("Other")){
+                                            otherDrinkMenu.add(entireDrinkMenu.get(x));
+                                        }
                                     }
                                 }
 
 
                                 if (!locationFound) {
-                                    Toast.makeText(HomeActivity.this, "Did not find location", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(HomeActivity.this, "Location code not valid/found. Try again.", Toast.LENGTH_SHORT).show();
+                                    editor.putString("CurrentLocationCode","NONE");
+                                    editor.apply();
                                 }
                             }
 
@@ -203,18 +230,143 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        final Button changeLocationButton = (Button)findViewById(R.id.button_changeLocation);
+        assert changeLocationButton != null;
+        changeLocationButton.setVisibility(View.INVISIBLE);
+        if(!preferences.getString("CurrentLocationCode","NONE").equals("NONE")){
+            changeLocationButton.setVisibility(View.VISIBLE);
+        }
+        changeLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.putString("CurrentLocationCode","NONE");
+                editor.apply();
+                editor.putString("CurrentLocationName","NONE");
+                editor.apply();
+                changeLocationButton.setVisibility(View.INVISIBLE);
+                currentLocationEditText.setText("None");
+                locationDialog.show();
+            }
+        });
+
         Button orderDrinksButton = (Button)findViewById(R.id.button_orderDrinks);
         assert orderDrinksButton != null;
         orderDrinksButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(HomeActivity.this, "Open OnTap Locations selector alert", Toast.LENGTH_SHORT).show();
-                if(currentLocationName == null){
+                if(preferences.getString("CurrentLocationCode","NONE").equals("NONE")){
                     locationDialog.show();
                 }
                 else{
-                    Intent myIntent = new Intent(HomeActivity.this, MyTabActivity.class);
-                    startActivity(myIntent);
+                    //Toast.makeText(HomeActivity.this, preferences.getString("CurrentLocationCode","NONE"), Toast.LENGTH_SHORT).show();
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Menu");
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        public void done(List<ParseObject> menus, com.parse.ParseException e) {
+                            if (e == null) {
+                                if (menus.size() == 0) {
+                                    Toast.makeText(HomeActivity.this, "No Locations Available..", Toast.LENGTH_SHORT).show();
+                                } else {
+
+                                    boolean locationFound = false;
+                                    for (int i = 0; i < menus.size(); i++) {
+                                        if (menus.get(i).getString("locID").equals(preferences.getString("CurrentLocationCode","NONE"))) {
+                                            //Toast.makeText(MainActivity.this, userID, Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(HomeActivity.this, "Location Match!", Toast.LENGTH_SHORT).show();
+                                            currentLocationName = menus.get(i).getString("locName");
+                                            currentLocationMenu = menus.get(i).getString("menu");
+
+
+                                            Toast.makeText(HomeActivity.this, currentLocationMenu, Toast.LENGTH_SHORT).show();
+                                            currentLocationEditText.setText(currentLocationName);
+                                            editor.putString("CurrentLocationName",currentLocationName);
+                                            editor.apply();
+                                            locationFound = true;
+
+                                            Intent myIntent = new Intent(HomeActivity.this, MyTabActivity.class);
+                                            startActivity(myIntent);
+                                        }
+                                    }
+
+                                    if(locationFound){
+                                        //String currentLocationMenuRaw = HomeActivity.currentLocationMenu;
+                                        String[] splitMenu = currentLocationMenu.split("-");
+
+                                        List<drinkObject> entireDrinkMenu = new ArrayList<drinkObject>();
+                                        beerMenu = new ArrayList<drinkObject>();
+                                        wineMenu = new ArrayList<drinkObject>();
+                                        cocktailMenu = new ArrayList<drinkObject>();
+                                        softDrinkMenu = new ArrayList<drinkObject>();
+                                        alcFreeCocktailMenu = new ArrayList<drinkObject>();
+                                        otherDrinkMenu = new ArrayList<drinkObject>();
+
+
+                                        //String[] values = new String[] {"","","","","","","","","","","","","","","","","","","","","","",""};
+
+                                        //Toast.makeText(BeersMenuActivity.this, splitMenu[0], Toast.LENGTH_SHORT).show();
+                                        int k = 0;
+                                        for (int j = 0; j < (splitMenu.length); j += 4) {
+
+
+                                            String drinkName = splitMenu[j];
+                                            //Toast.makeText(HomeActivity.this, drinkName, Toast.LENGTH_SHORT).show();
+                                            String drinkAlcohol = splitMenu[j + 1];
+                                            //Toast.makeText(HomeActivity.this, drinkAlcohol, Toast.LENGTH_SHORT).show();
+                                            String drinkType = splitMenu[j + 2];
+                                            //Toast.makeText(HomeActivity.this, drinkType, Toast.LENGTH_SHORT).show();
+                                            String drinkPrice = splitMenu[j + 3];
+                                            //Toast.makeText(HomeActivity.this, drinkPrice, Toast.LENGTH_SHORT).show();
+                                            //values[k] = drinkName;
+                                            //k++;
+
+                                            // create entire list of all drink objects
+                                            drinkObject newDrink = new drinkObject(drinkName, drinkAlcohol, drinkType, Integer.parseInt(drinkPrice));
+                                            entireDrinkMenu.add(newDrink);
+
+
+                                        }
+
+                                        // loop through entire drink list and group drink types in their respective menu-lists
+                                        for (int x = 0; x < entireDrinkMenu.size(); x++) {
+                                            if (entireDrinkMenu.get(x).getDrinkType().equals("Beer")) {
+                                                beerMenu.add(entireDrinkMenu.get(x));
+                                            }
+                                            if (entireDrinkMenu.get(x).getDrinkType().equals("Wine")) {
+                                                wineMenu.add(entireDrinkMenu.get(x));
+                                            }
+                                            if (entireDrinkMenu.get(x).getDrinkType().equals("Cocktail")) {
+                                                cocktailMenu.add(entireDrinkMenu.get(x));
+                                            }
+                                            if(entireDrinkMenu.get(x).getDrinkType().equals("Soft Drink")){
+                                                softDrinkMenu.add(entireDrinkMenu.get(x));
+                                            }
+                                            if(entireDrinkMenu.get(x).getDrinkType().equals("AlcFreeCocktail")){
+                                                alcFreeCocktailMenu.add(entireDrinkMenu.get(x));
+                                            }
+                                            if(entireDrinkMenu.get(x).getDrinkType().equals("Other")){
+                                                otherDrinkMenu.add(entireDrinkMenu.get(x));
+                                            }
+                                        }
+                                    }
+
+
+
+
+
+                                    if (!locationFound) {
+                                        Toast.makeText(HomeActivity.this, "Location code not valid/found. Try again.", Toast.LENGTH_SHORT).show();
+                                        editor.putString("CurrentLocationCode","NONE");
+                                        editor.apply();
+                                    }
+                                }
+
+                            } else {
+                                //objectRetrievalFailed();
+                                Toast.makeText(HomeActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
                 }
 
             }

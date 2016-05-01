@@ -2,8 +2,10 @@ package cs477.ontap;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -42,12 +44,18 @@ public class MyTabActivity extends AppCompatActivity {
     public List<drinkObject> myTabOrder;
     public int itemAmount,itemPrice,totalPrice;
 
+    public SharedPreferences preferences;
+    public SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_tab);
 
         myTabOrder = HomeActivity.myTabOrder;
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = preferences.edit();
 
 
 
@@ -350,9 +358,11 @@ public class MyTabActivity extends AppCompatActivity {
             });
         }
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String locationName = preferences.getString("CurrentLocationName", "None");
 
+        setTitle("MyTab: " + locationName);
 
-        setTitle(HomeActivity.currentLocationName + ": MyTab & Order Status");
 
 
         final Dialog tableSelectionDialog = new Dialog(this);
