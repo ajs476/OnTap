@@ -52,7 +52,15 @@ public class HomeActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
 
-
+        Button viewOrderHistoryButton = (Button)findViewById(R.id.button_orderHistory);
+        assert viewOrderHistoryButton != null;
+        viewOrderHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(HomeActivity.this, OrderHistoryActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
 
 
@@ -132,7 +140,7 @@ public class HomeActivity extends AppCompatActivity {
 
                                 boolean locationFound = false;
                                 for (int i = 0; i < menus.size(); i++) {
-                                    if (menus.get(i).getString("locID").equals(preferences.getString("CurrentLocationCode","NONE"))) {
+                                    if (menus.get(i).getString("locID").equals(preferences.getString("CurrentLocationCode", "NONE"))) {
                                         //Toast.makeText(MainActivity.this, userID, Toast.LENGTH_SHORT).show();
                                         Toast.makeText(HomeActivity.this, "Location Match!", Toast.LENGTH_SHORT).show();
                                         currentLocationName = menus.get(i).getString("locName");
@@ -141,7 +149,7 @@ public class HomeActivity extends AppCompatActivity {
 
                                         //Toast.makeText(HomeActivity.this, currentLocationMenu, Toast.LENGTH_SHORT).show();
                                         currentLocationEditText.setText(currentLocationName);
-                                        editor.putString("CurrentLocationName",currentLocationName);
+                                        editor.putString("CurrentLocationName", currentLocationName);
                                         editor.apply();
                                         locationFound = true;
 
@@ -150,7 +158,7 @@ public class HomeActivity extends AppCompatActivity {
                                     }
                                 }
 
-                                if(locationFound){
+                                if (locationFound) {
                                     //String currentLocationMenuRaw = HomeActivity.currentLocationMenu;
                                     String[] splitMenu = currentLocationMenu.split("-");
 
@@ -199,13 +207,13 @@ public class HomeActivity extends AppCompatActivity {
                                         if (entireDrinkMenu.get(x).getDrinkType().equals("Cocktail")) {
                                             cocktailMenu.add(entireDrinkMenu.get(x));
                                         }
-                                        if(entireDrinkMenu.get(x).getDrinkType().equals("Soft Drink")){
+                                        if (entireDrinkMenu.get(x).getDrinkType().equals("Soft Drink")) {
                                             softDrinkMenu.add(entireDrinkMenu.get(x));
                                         }
-                                        if(entireDrinkMenu.get(x).getDrinkType().equals("AlcFreeCocktail")){
+                                        if (entireDrinkMenu.get(x).getDrinkType().equals("AlcFreeCocktail")) {
                                             alcFreeCocktailMenu.add(entireDrinkMenu.get(x));
                                         }
-                                        if(entireDrinkMenu.get(x).getDrinkType().equals("Other")){
+                                        if (entireDrinkMenu.get(x).getDrinkType().equals("Other")) {
                                             otherDrinkMenu.add(entireDrinkMenu.get(x));
                                         }
                                     }
@@ -214,7 +222,7 @@ public class HomeActivity extends AppCompatActivity {
 
                                 if (!locationFound) {
                                     Toast.makeText(HomeActivity.this, "Location code not valid/found. Try again.", Toast.LENGTH_SHORT).show();
-                                    editor.putString("CurrentLocationCode","NONE");
+                                    editor.putString("CurrentLocationCode", "NONE");
                                     editor.apply();
                                 }
                             }
@@ -270,7 +278,7 @@ public class HomeActivity extends AppCompatActivity {
 
                                     boolean locationFound = false;
                                     for (int i = 0; i < menus.size(); i++) {
-                                        if (menus.get(i).getString("locID").equals(preferences.getString("CurrentLocationCode","NONE"))) {
+                                        if (menus.get(i).getString("locID").equals(preferences.getString("CurrentLocationCode", "NONE"))) {
                                             //Toast.makeText(MainActivity.this, userID, Toast.LENGTH_SHORT).show();
                                             Toast.makeText(HomeActivity.this, "Location Match!", Toast.LENGTH_SHORT).show();
                                             currentLocationName = menus.get(i).getString("locName");
@@ -279,7 +287,7 @@ public class HomeActivity extends AppCompatActivity {
 
                                             Toast.makeText(HomeActivity.this, currentLocationMenu, Toast.LENGTH_SHORT).show();
                                             currentLocationEditText.setText(currentLocationName);
-                                            editor.putString("CurrentLocationName",currentLocationName);
+                                            editor.putString("CurrentLocationName", currentLocationName);
                                             editor.apply();
                                             locationFound = true;
 
@@ -288,7 +296,7 @@ public class HomeActivity extends AppCompatActivity {
                                         }
                                     }
 
-                                    if(locationFound){
+                                    if (locationFound) {
                                         //String currentLocationMenuRaw = HomeActivity.currentLocationMenu;
                                         String[] splitMenu = currentLocationMenu.split("-");
 
@@ -337,25 +345,22 @@ public class HomeActivity extends AppCompatActivity {
                                             if (entireDrinkMenu.get(x).getDrinkType().equals("Cocktail")) {
                                                 cocktailMenu.add(entireDrinkMenu.get(x));
                                             }
-                                            if(entireDrinkMenu.get(x).getDrinkType().equals("Soft Drink")){
+                                            if (entireDrinkMenu.get(x).getDrinkType().equals("Soft Drink")) {
                                                 softDrinkMenu.add(entireDrinkMenu.get(x));
                                             }
-                                            if(entireDrinkMenu.get(x).getDrinkType().equals("AlcFreeCocktail")){
+                                            if (entireDrinkMenu.get(x).getDrinkType().equals("AlcFreeCocktail")) {
                                                 alcFreeCocktailMenu.add(entireDrinkMenu.get(x));
                                             }
-                                            if(entireDrinkMenu.get(x).getDrinkType().equals("Other")){
+                                            if (entireDrinkMenu.get(x).getDrinkType().equals("Other")) {
                                                 otherDrinkMenu.add(entireDrinkMenu.get(x));
                                             }
                                         }
                                     }
 
 
-
-
-
                                     if (!locationFound) {
                                         Toast.makeText(HomeActivity.this, "Location code not valid/found. Try again.", Toast.LENGTH_SHORT).show();
-                                        editor.putString("CurrentLocationCode","NONE");
+                                        editor.putString("CurrentLocationCode", "NONE");
                                         editor.apply();
                                     }
                                 }

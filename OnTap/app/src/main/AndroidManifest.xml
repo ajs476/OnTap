@@ -98,5 +98,10 @@
             android:label="OnTap: Cocktail-Menu"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".OrderHistoryActivity"
+            android:label="OnTap: Order History"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 </manifest>

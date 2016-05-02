@@ -359,7 +359,7 @@ public class MyTabActivity extends AppCompatActivity {
         }
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String locationName = preferences.getString("CurrentLocationName", "None");
+        final String locationName = preferences.getString("CurrentLocationName", "None");
 
         setTitle("MyTab: " + locationName);
 
@@ -395,6 +395,8 @@ public class MyTabActivity extends AppCompatActivity {
                 OrderObject.put("Status", 0);
                 OrderObject.put("Table", userTableNumber);
                 OrderObject.put("userID", userID);
+                OrderObject.put("orderPrice", totalCost);
+                OrderObject.put("venueName",locationName);
                 OrderObject.saveInBackground();
 
 
