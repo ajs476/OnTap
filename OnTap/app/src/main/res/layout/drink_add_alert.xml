@@ -22,11 +22,15 @@
         android:text="1"
         android:gravity="center_horizontal"
         android:textSize="28dp"
-        android:layout_below="@+id/textView16"
+        android:background="@android:color/transparent"
+        android:layout_alignRight="@+id/textView16"
+        android:layout_alignEnd="@+id/textView16"
         android:layout_alignLeft="@+id/textView16"
         android:layout_alignStart="@+id/textView16"
-        android:layout_alignRight="@+id/textView16"
-        android:layout_alignEnd="@+id/textView16" />
+        android:layout_alignBottom="@+id/button_increaseQty"
+        android:layout_alignTop="@+id/button_increaseQty"
+        android:layout_marginTop="10dp"
+        android:focusable="false"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -47,7 +51,7 @@
         android:text="-"
         android:id="@+id/button_decreaseQty"
         android:textSize="28dp"
-        android:layout_above="@+id/editText_drinkAddName"
+        android:layout_alignBottom="@+id/editText_drinkQty"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="50dp" />
@@ -64,7 +68,10 @@
         android:layout_alignEnd="@+id/button_increaseQty"
         android:gravity="center_horizontal"
         android:textSize="28dp"
-        android:text="Coors Draft" />
+        android:text="Coors Draft"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"
+        android:background="@android:color/transparent"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,9 +89,8 @@
         android:text="Add"
         android:id="@+id/button_addDrink"
         android:layout_below="@+id/editText_totalCost"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="50dp" />
+        android:layout_alignRight="@+id/editText_drinkAddName"
+        android:layout_alignEnd="@+id/editText_drinkAddName" />
 
     <Button
         android:layout_width="wrap_content"
@@ -92,9 +98,8 @@
         android:text="Cancel"
         android:id="@+id/button_cancelAdd"
         android:layout_alignTop="@+id/button_addDrink"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="50dp" />
+        android:layout_alignLeft="@+id/editText_drinkAddName"
+        android:layout_alignStart="@+id/editText_drinkAddName" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -114,6 +119,8 @@
         android:text="$3"
         android:textSize="28dp"
         android:layout_below="@+id/textView18"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:focusable="false"/>
 
 </RelativeLayout>

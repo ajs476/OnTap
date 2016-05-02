@@ -44,15 +44,10 @@
         android:layout_alignStart="@+id/textView15"
         android:layout_alignRight="@+id/textView15"
         android:layout_alignEnd="@+id/textView15"
-        android:gravity="center_horizontal" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change Location"
-        android:id="@+id/button_changeLocation"
-        android:layout_below="@+id/editText_currentLocationName"
-        android:layout_centerHorizontal="true" />
+        android:gravity="center_horizontal"
+        android:focusableInTouchMode="false"
+        android:background="@android:color/transparent"
+        android:inputType="textNoSuggestions"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -65,5 +60,15 @@
         android:layout_alignRight="@+id/button_manageAccount"
         android:layout_alignEnd="@+id/button_manageAccount"
         android:layout_marginTop="20dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EDIT"
+        android:id="@+id/button_changeLocation"
+        android:layout_alignBottom="@+id/editText_currentLocationName"
+        android:layout_toRightOf="@+id/editText_currentLocationName"
+        android:layout_toEndOf="@+id/editText_currentLocationName" />
 
 </RelativeLayout>

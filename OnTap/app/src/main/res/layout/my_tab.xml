@@ -58,7 +58,8 @@
         android:layout_marginTop="20dp"
         android:layout_toLeftOf="@+id/editText_tabCost1"
         android:layout_toStartOf="@+id/editText_tabCost1"
-        android:text="Empty" />
+        android:text="Empty"
+        android:focusable="false"/>
 
 
 
@@ -73,7 +74,8 @@
         android:layout_alignRight="@+id/textView8"
         android:layout_alignEnd="@+id/textView8"
         android:gravity="right"
-        android:text="0" />
+        android:text="0"
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -84,7 +86,9 @@
         android:layout_alignLeft="@+id/editText_tabItem1"
         android:layout_alignStart="@+id/editText_tabItem1"
         android:layout_toLeftOf="@+id/editText_tabCost1"
-        android:layout_toStartOf="@+id/editText_tabCost1" />
+        android:layout_toStartOf="@+id/editText_tabCost1"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
 
 
@@ -97,7 +101,8 @@
         android:layout_alignBottom="@+id/editText_tabItem2"
         android:layout_alignRight="@+id/editText_tabCost1"
         android:layout_alignEnd="@+id/editText_tabCost1"
-        android:text=""  />
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -108,7 +113,9 @@
         android:layout_alignLeft="@+id/editText_tabItem2"
         android:layout_alignStart="@+id/editText_tabItem2"
         android:layout_alignRight="@+id/editText_tabItem2"
-        android:layout_alignEnd="@+id/editText_tabItem2" />
+        android:layout_alignEnd="@+id/editText_tabItem2"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
 
     <EditText
@@ -120,7 +127,9 @@
         android:layout_alignLeft="@+id/editText_tabItem3"
         android:layout_alignStart="@+id/editText_tabItem3"
         android:layout_alignRight="@+id/editText_tabItem3"
-        android:layout_alignEnd="@+id/editText_tabItem3" />
+        android:layout_alignEnd="@+id/editText_tabItem3"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
 
 
@@ -133,7 +142,8 @@
         android:layout_above="@+id/editText_tabCost5"
         android:layout_alignRight="@+id/editText_tabCost5"
         android:layout_alignEnd="@+id/editText_tabCost5"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -144,7 +154,9 @@
         android:layout_alignLeft="@+id/editText_tabItem4"
         android:layout_alignStart="@+id/editText_tabItem4"
         android:layout_alignRight="@+id/editText_tabItem4"
-        android:layout_alignEnd="@+id/editText_tabItem4" />
+        android:layout_alignEnd="@+id/editText_tabItem4"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
 
     <EditText
@@ -156,7 +168,9 @@
         android:layout_alignLeft="@+id/editText_tabItem5"
         android:layout_alignStart="@+id/editText_tabItem5"
         android:layout_alignRight="@+id/editText_tabItem5"
-        android:layout_alignEnd="@+id/editText_tabItem5" />
+        android:layout_alignEnd="@+id/editText_tabItem5"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
 
     <EditText
@@ -168,7 +182,9 @@
         android:layout_alignLeft="@+id/editText_tabItem6"
         android:layout_alignStart="@+id/editText_tabItem6"
         android:layout_alignRight="@+id/editText_tabItem6"
-        android:layout_alignEnd="@+id/editText_tabItem6" />
+        android:layout_alignEnd="@+id/editText_tabItem6"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
 
     <TextView
@@ -225,7 +241,9 @@
         android:layout_alignLeft="@+id/editText_tabItem7"
         android:layout_alignStart="@+id/editText_tabItem7"
         android:layout_alignRight="@+id/editText_tabItem7"
-        android:layout_alignEnd="@+id/editText_tabItem7" />
+        android:layout_alignEnd="@+id/editText_tabItem7"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -236,7 +254,9 @@
         android:layout_alignLeft="@+id/editText_tabItem8"
         android:layout_alignStart="@+id/editText_tabItem8"
         android:layout_alignRight="@+id/editText_tabItem8"
-        android:layout_alignEnd="@+id/editText_tabItem8" />
+        android:layout_alignEnd="@+id/editText_tabItem8"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -247,7 +267,9 @@
         android:layout_alignLeft="@+id/editText_tabItem9"
         android:layout_alignStart="@+id/editText_tabItem9"
         android:layout_alignRight="@+id/editText_tabItem9"
-        android:layout_alignEnd="@+id/editText_tabItem9" />
+        android:layout_alignEnd="@+id/editText_tabItem9"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -258,7 +280,9 @@
         android:layout_alignLeft="@+id/editText_tabItem10"
         android:layout_alignStart="@+id/editText_tabItem10"
         android:layout_alignRight="@+id/editText_tabItem10"
-        android:layout_alignEnd="@+id/editText_tabItem10" />
+        android:layout_alignEnd="@+id/editText_tabItem10"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -269,7 +293,9 @@
         android:layout_alignLeft="@+id/editText_tabItem11"
         android:layout_alignStart="@+id/editText_tabItem11"
         android:layout_alignRight="@+id/editText_tabItem11"
-        android:layout_alignEnd="@+id/editText_tabItem11" />
+        android:layout_alignEnd="@+id/editText_tabItem11"
+        android:inputType="textNoSuggestions"
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -280,7 +306,8 @@
         android:layout_above="@+id/editText_tabCost9"
         android:layout_alignRight="@+id/textView11"
         android:layout_alignEnd="@+id/textView11"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -291,7 +318,8 @@
         android:layout_above="@+id/editText_tabCost10"
         android:layout_alignRight="@+id/textView11"
         android:layout_alignEnd="@+id/textView11"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -302,7 +330,8 @@
         android:layout_above="@+id/editText_tabCost11"
         android:layout_alignRight="@+id/textView11"
         android:layout_alignEnd="@+id/textView11"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -313,7 +342,8 @@
         android:layout_above="@+id/editText_tabCost12"
         android:layout_alignRight="@+id/editText_tabCost12"
         android:layout_alignEnd="@+id/editText_tabCost12"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -324,7 +354,8 @@
         android:layout_above="@+id/textView_statusTitle"
         android:layout_alignRight="@+id/textView11"
         android:layout_alignEnd="@+id/textView11"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -335,7 +366,8 @@
         android:layout_above="@+id/editText_tabCost8"
         android:layout_alignRight="@+id/textView11"
         android:layout_alignEnd="@+id/textView11"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -346,7 +378,8 @@
         android:layout_above="@+id/editText_tabCost7"
         android:layout_alignRight="@+id/textView8"
         android:layout_alignEnd="@+id/textView8"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -357,7 +390,8 @@
         android:layout_below="@+id/editText_tabItem4"
         android:layout_alignRight="@+id/textView8"
         android:layout_alignEnd="@+id/textView8"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <EditText
         android:background="@android:color/transparent"
@@ -368,7 +402,8 @@
         android:layout_above="@+id/editText_tabCost4"
         android:layout_alignRight="@+id/editText_tabCost1"
         android:layout_alignEnd="@+id/editText_tabCost1"
-        android:text=""/>
+        android:text=""
+        android:focusable="false"/>
 
     <ImageView
         android:layout_width="wrap_content"

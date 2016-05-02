@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Contacts;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -34,6 +36,8 @@ public class BeersMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beers_menu);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final ListView myBeerList = (ListView)findViewById(R.id.listView_beerList);
 
@@ -139,5 +143,20 @@ public class BeersMenuActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }
