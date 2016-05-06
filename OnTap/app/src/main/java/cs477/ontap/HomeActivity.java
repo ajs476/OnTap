@@ -285,7 +285,7 @@ public class HomeActivity extends AppCompatActivity {
                                             currentLocationMenu = menus.get(i).getString("menu");
 
 
-                                            Toast.makeText(HomeActivity.this, currentLocationMenu, Toast.LENGTH_SHORT).show();
+                                            //Toast.makeText(HomeActivity.this, currentLocationMenu, Toast.LENGTH_SHORT).show();
                                             currentLocationEditText.setText(currentLocationName);
                                             editor.putString("CurrentLocationName", currentLocationName);
                                             editor.apply();

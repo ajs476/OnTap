@@ -453,7 +453,7 @@ public class MyTabActivity extends AppCompatActivity {
                                                 }
                                             }
                                             if (!orderFound) {
-                                                Toast.makeText(MyTabActivity.this, "Did not find order", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(MyTabActivity.this, "Did not find order", Toast.LENGTH_SHORT).show();
                                             }
                                         }
 
@@ -575,7 +575,7 @@ public class MyTabActivity extends AppCompatActivity {
                                                 }
                                             }
                                             if (!orderFound) {
-                                                Toast.makeText(MyTabActivity.this, "Did not find order", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(MyTabActivity.this, "Did not find order", Toast.LENGTH_SHORT).show();
                                             }
                                         }
 
